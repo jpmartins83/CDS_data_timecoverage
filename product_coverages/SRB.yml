@@ -3,13 +3,16 @@ CLARA:
   enddate: 2018-12-31
   ECV: 'Surface Radiation Budget'
   Product: 'CLARA (SRB)'
+  Lot: 'Atmospheric Physics'
 CCI:
   startdate: 1995-06-01
   enddate: 2012-04-30
   ECV: 'Surface Radiation Budget'
   Product: 'CCI (SRB)'
+  Lot: 'Atmospheric Physics'
 CCI2:
   startdate: 2017-01-01
   enddate: 2021-12-31
   ECV: 'Surface Radiation Budget'
   Product: 'CCI (SRB)'
+  Lot: 'Atmospheric Physics'

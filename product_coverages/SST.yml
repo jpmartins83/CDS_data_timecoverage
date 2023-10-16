@@ -3,8 +3,10 @@ gmpesst:
   enddate: 2016-12-31
   ECV: 'SST'
   Product: 'GMPE SST'
+  Lot: 'Ocean'
 sst:
   startdate: 1981-08-24
   enddate: 2022-12-31
   ECV: 'SST'
   Product: 'SST'
+  Lot: 'Ocean'

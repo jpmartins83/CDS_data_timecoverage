@@ -3,13 +3,16 @@ SL_Med:
   enddate: 2020-06-30
   ECV: 'Sea Level'
   Product: 'Sea Level - Mediterranean'
+  Lot: 'Ocean'
 SL_Black:
   startdate: 1993-01-01
   enddate: 2020-06-30
   ECV: 'Sea Level'
   Product: 'Sea Level - Black Sea'
+  Lot: 'Ocean'
 SL_Global:
   startdate: 1993-01-01
   enddate: 2022-08-31
   ECV: 'Sea Level'
   Product: 'Sea Level - Global'
+  Lot: 'Ocean'

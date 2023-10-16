@@ -3,3 +3,4 @@ lakes:
   enddate: 2022-12-31
   ECV: 'Lakes'
   Product: 'Lake water levels'
+  Lot: 'Hydrology and Cryosphere'

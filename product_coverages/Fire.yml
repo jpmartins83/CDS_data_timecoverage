@@ -3,8 +3,10 @@ FRP:
   enddate: 2021-02-28
   ECV: 'Fire'
   Product: 'Fire Radiative Power'
+  Lot: 'Land Biosphere'
 Burned_area:
   startdate: 2001-01-01
   enddate: 2022-04-30
   ECV: 'Fire'
   Product: 'Fire Burned Areas'
+  Lot: 'Land Biosphere'
