@@ -1,0 +1,5 @@
+lakes:
+  startdate: 1992-01-01
+  enddate: 2022-12-31
+  ECV: 'Lakes'
+  Product: 'Lake water levels'

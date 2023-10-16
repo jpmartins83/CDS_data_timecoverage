@@ -1,0 +1,10 @@
+precipitation:
+  startdate: 1979-01-01
+  enddate: 2022-06-30
+  ECV: 'Precipitation'
+  Product: 'Precipitation'
+precipitation-microwave:
+  startdate: 2000-01-01
+  enddate: 2017-12-31
+  ECV: 'Precipitation'
+  Product: 'Precipitation-Microwave'

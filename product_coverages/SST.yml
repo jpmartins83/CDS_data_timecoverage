@@ -1,0 +1,10 @@
+gmpesst:
+  startdate: 1981-09-01
+  enddate: 2016-12-31
+  ECV: 'SST'
+  Product: 'GMPE SST'
+sst:
+  startdate: 1981-08-24
+  enddate: 2022-12-31
+  ECV: 'SST'
+  Product: 'SST'

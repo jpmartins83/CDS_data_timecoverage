@@ -1,0 +1,20 @@
+tcwv_meris_ssmi:
+  startdate: 2002-05-01
+  enddate: 2012-03-31
+  ECV: 'Upper air water vapour'
+  Product: 'Total Column Water Vapour (MERIS/SSMI)'
+tcwv_hoaps:
+  startdate: 1988-01-01
+  enddate: 2020-12-31
+  ECV: 'Upper air water vapour'
+  Product: 'Total Column Water Vapour (HOAPS)'
+UTH:
+  startdate: 1999-01-01
+  enddate: 2021-04-28
+  ECV: 'Upper air water vapour'
+  Product: 'Upper Tropospheric Humidity'
+THP:
+  startdate: 2006-12-01
+  enddate: 2023-02-28
+  ECV: 'Upper air water vapour'
+  Product: 'Tropospheric Humidity Profiles (RO)'

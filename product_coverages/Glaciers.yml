@@ -1,0 +1,10 @@
+Randolph:
+  startdate: 1990-01-01 # http://www.glims.org/rgi_user_guide/06_dataset_summary.html
+  enddate: 2010-12-31
+  ECV: 'Glaciers'
+  Product: 'Randolph Glacier Inventory for the year 2000'
+Glaciers_elevation:
+  startdate: 1990-01-01 # http://www.glims.org/rgi_user_guide/06_dataset_summary.html
+  enddate: 2019-12-31
+  ECV: 'Glaciers'
+  Product: 'Glaciers elevation and mass change data'

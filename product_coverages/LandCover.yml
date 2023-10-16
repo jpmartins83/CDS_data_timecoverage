@@ -1,0 +1,5 @@
+LandCover:
+  startdate: 1992-01-01
+  enddate: 2020-12-31
+  ECV: 'Land Cover'
+  Product: 'Land Cover'

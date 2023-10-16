@@ -1,0 +1,10 @@
+CH4:
+  startdate: 2002-10-01
+  enddate: 2021-12-31
+  ECV: 'GHG'
+  Product: 'Methane'
+CO2:
+  startdate: 2002-10-01
+  enddate: 2021-12-31
+  ECV: 'GHG'
+  Product: 'CO2'

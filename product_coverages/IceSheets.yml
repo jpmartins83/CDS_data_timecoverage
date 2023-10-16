@@ -1,0 +1,15 @@
+gravIS:
+  startdate: 2003-01-01
+  enddate: 2020-12-31
+  ECV: 'Ice Sheets'
+  Product: 'Gravimetric Mass Balance (Ice Sheets)'
+GreenISvel:
+  startdate: 2017-01-01
+  enddate: 2021-12-31
+  ECV: 'Ice Sheets'
+  Product: 'Greenland Ice Sheet Velocity'
+ISSurfElev: # needs checking
+  startdate: 1992-01-01
+  enddate: 2023-03-01
+  ECV: 'Ice Sheets'
+  Product: 'Ice Sheet Surface Elevation change rate'
