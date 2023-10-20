@@ -16,9 +16,3 @@ SIT:
   ECV: 'Sea Ice'
   Product: 'Sea Ice Thickness'
   Lot: 'Ocean'
-GIS_velocity:
-  startdate: 2017-01-01
-  enddate: 2021-12-31
-  ECV: 'Sea Ice'
-  Product: 'Greenland Ice Sheet Velocity'
-  Lot: 'Ocean'
