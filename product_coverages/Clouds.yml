@@ -1,0 +1,12 @@
+CLARA:
+  startdate: 1982-01-01
+  enddate: 2021-12-31
+  ECV: 'Clouds'
+  Product: 'Clouds (CLARA)'
+  Lot: 'Atmospheric Physics'
+Cloud_CCI: # complicated coverage with sevaral outage periods. 
+  startdate: 1995-06-01
+  enddate: 2021-12-31
+  ECV: 'Clouds'
+  Product: 'Clouds (CCI)'
+  Lot: 'Atmospheric Physics'

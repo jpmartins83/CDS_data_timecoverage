@@ -1,6 +1,12 @@
-lakes:
+lakes_levels:
   startdate: 1992-01-01
   enddate: 2022-12-31
   ECV: 'Lakes'
   Product: 'Lake water levels'
+  Lot: 'Hydrology and Cryosphere'
+lake_temperature:
+  startdate: 1995-06-01
+  enddate: 2022-09-30
+  ECV: 'Lakes'
+  Product: 'Lake Surface Temperature'
   Lot: 'Hydrology and Cryosphere'
