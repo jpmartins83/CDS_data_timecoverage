@@ -1,14 +1,20 @@
 gravIS:
   startdate: 2003-01-01
-  enddate: 2020-12-31
+  enddate: 2022-12-31
   ECV: 'Ice Sheets'
   Product: 'Gravimetric Mass Balance (Ice Sheets)'
   Lot: 'Hydrology and Cryosphere'
-ISSurfElev: # needs checking
+ISSurfElevAnt: # needs checking
   startdate: 1992-01-01
-  enddate: 2023-03-01
+  enddate: 2022-04-01
   ECV: 'Ice Sheets'
-  Product: 'Ice Sheet Surface Elevation change rate'
+  Product: 'Ice Sheet Surface Elevation change rate - Antarctica'
+  Lot: 'Hydrology and Cryosphere'
+ISSurfElevGreen: # needs checking
+  startdate: 1992-01-01
+  enddate: 2023-07-31
+  ECV: 'Ice Sheets'
+  Product: 'Ice Sheet Surface Elevation change rate - Greenland' # open time dim from greenland file
   Lot: 'Hydrology and Cryosphere'
 GreIceVelocity:
   startdate: 2017-01-01

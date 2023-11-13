@@ -1,6 +1,18 @@
-smois:
-  startdate: 1978-11-01
-  enddate: 2023-09-30
+smois_act:
+  startdate: 1991-05-05
+  enddate: 2023-10-20
   ECV: 'Soil Moisture'
-  Product: 'Soil Moisture'
+  Product: 'Soil Moisture (active MW)'
+  Lot: 'Hydrology and Cryosphere'
+smois_passive:
+  startdate: 1978-11-01
+  enddate: 2023-10-20
+  ECV: 'Soil Moisture'
+  Product: 'Soil Moisture (passive MW)'
+  Lot: 'Hydrology and Cryosphere'
+smois_merged:
+  startdate: 1978-11-01
+  enddate: 2023-10-20
+  ECV: 'Soil Moisture'
+  Product: 'Soil Moisture (merged)'
   Lot: 'Hydrology and Cryosphere'
