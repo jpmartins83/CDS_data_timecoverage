@@ -1,0 +1,111 @@
+cds_form_dir: /Users/cxjo/Documents/cds-forms-c3s/
+ECV:
+  Aerosols:
+    Thematic_hub: 'Atmospheric Composition'
+    entry: 
+      - satellite-aerosol-properties
+  Albedo:
+    Thematic_hub: 'Land Biosphere'
+    entry: 
+      - satellite-albedo
+  Greenhouse Gases:
+    Thematic_hub: 'Atmospheric Composition'
+    entry: 
+      - satellite-carbon-dioxide
+      - satellite-methane
+  Clouds: 
+    Thematic_hub: 'Atmospheric Physics'
+    entry: 
+    - satellite-cloud-properties
+  Earth Radiation Budget:
+    Thematic_hub: 'Atmospheric Physics'
+    entry: 
+      - satellite-earth-radiation-budget
+  Fire:
+    Thematic_hub: 'Land Biosphere'
+    entry: 
+      - satellite-fire-burned-area
+      - satellite-fire-radiative-power
+  Ice Sheets:
+    Thematic_hub: 'Cryosphere'
+    entry: 
+      - satellite-greenland-ice-sheet-velocity
+      - satellite-ice-sheet-elevation-change
+      - satellite-ice-sheet-mass-balance
+  Glaciers:
+    Thematic_hub: 'Cryosphere'
+    entry:
+      - insitu-glaciers-extent
+      - derived-gridded-glacier-mass-change/
+  Upper-air Water Vapour:
+    Thematic_hub: 'Atmospheric Physics'
+    entry: 
+      - satellite-humidity-profiles
+      - satellite-total-column-water-vapour-land-ocean
+      - satellite-total-column-water-vapour-ocean
+      - satellite-upper-troposphere-humidity
+  LAI:
+    Thematic_hub: 'Land Biosphere'
+    entry: 
+      - satellite-lai-fapar
+  FAPAR:
+    Thematic_hub: 'Land Biosphere'
+    entry: 
+      - satellite-lai-fapar
+  Lakes:
+    Thematic_hub: 'Land Hydrology'
+    entry: 
+      - satellite-lake-water-level
+      - satellite-lake-water-temperature
+  Land Cover: 
+    Thematic_hub: 'Land Biosphere'
+    entry:
+      - satellite-land-cover
+  Ocean Colour: 
+    Thematic_hub: 'Ocean'
+    entry: 
+      - satellite-ocean-colour
+  Ozone: 
+    Thematic_hub: 'Atmospheric Composition'
+    entry: 
+      - satellite-ozone-v1
+  Precipitation:
+    Thematic_hub: 'Atmospheric Physics'
+    entry: 
+      - satellite-precipitation 
+      - satellite-precipitation-microwave
+  Sea Ice:
+    Thematic_hub: 'Ocean'
+    entry:
+      - satellite-sea-ice
+      - satellite-sea-ice-concentration
+      - satellite-sea-ice-edge-type
+      # - satellite-sea-ice-temperature
+      - satellite-sea-ice-thickness
+      # - satellite-sea-ice-thickness-daily
+  Sea Level: 
+    Thematic_hub: 'Ocean'
+    entry:
+      - satellite-sea-level-black-sea
+      - satellite-sea-level-global
+      - satellite-sea-level-mediterranean
+  SST: 
+    Thematic_hub: 'Ocean'
+    entry:
+      - satellite-sea-surface-temperature
+      - satellite-sea-surface-temperature-complete
+      - satellite-sea-surface-temperature-ensemble-product
+  Soil Moisture: 
+    Thematic_hub: 'Land Hydrology'
+    entry: 
+      - satellite-soil-moisture
+  Surface Currents: 
+    Thematic_hub: 'Ocean'
+    entry:
+      - satellite-sea-level-global
+  Surface Radiation Budget: 
+    Thematic_hub: 'Atmospheric Physics'
+    entry: 
+      - satellite-surface-radiation-budget
+
+
