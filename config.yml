@@ -1,4 +1,5 @@
 cds_form_dir: /Users/cxjo/Documents/cds-forms-c3s/
+datasets_dir: /Users/cxjo/Library/CloudStorage/OneDrive-ECMWF/ECVs_General/CDS_data_timecoverage/datasets/
 ECV:
   Aerosols:
     Thematic_hub: 'Atmospheric Composition'
