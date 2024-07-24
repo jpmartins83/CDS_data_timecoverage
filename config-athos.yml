@@ -1,0 +1,396 @@
+cds_form_dir: /home/cxjo/C3S_stuff/cds-forms-c3s/
+datasets_dir: /home/cxjo/C3S_stuff/datasets/
+figs_dir: /home/cxjo/C3S_stuff/CDS_data_timecoverage/ECVs_time_coverage/
+ECV:
+  Aerosols:
+    Thematic_hub: 'Atmospheric Composition'
+    entry: 
+      - satellite-aerosol-properties
+  Albedo:
+    Thematic_hub: 'Land Biosphere'
+    entry: 
+      - satellite-albedo
+  Greenhouse Gases:
+    Thematic_hub: 'Atmospheric Composition'
+    entry: 
+      - satellite-carbon-dioxide
+      - satellite-methane
+  Clouds: 
+    Thematic_hub: 'Atmospheric Physics'
+    entry: 
+    - satellite-cloud-properties
+  Earth Radiation Budget:
+    Thematic_hub: 'Atmospheric Physics'
+    entry: 
+      - satellite-earth-radiation-budget
+  Fire:
+    Thematic_hub: 'Land Biosphere'
+    entry: 
+      - satellite-fire-burned-area
+      - satellite-fire-radiative-power
+  Ice Sheets:
+    Thematic_hub: 'Cryosphere'
+    entry: 
+      - satellite-greenland-ice-sheet-velocity
+      - satellite-ice-sheet-elevation-change
+      - satellite-ice-sheet-mass-balance
+  Glaciers:
+    Thematic_hub: 'Cryosphere'
+    entry:
+      - insitu-glaciers-extent
+      - derived-gridded-glacier-mass-change
+  Upper-air Water Vapour:
+    Thematic_hub: 'Atmospheric Physics'
+    entry: 
+      - satellite-humidity-profiles
+      - satellite-total-column-water-vapour-land-ocean
+      - satellite-total-column-water-vapour-ocean
+      - satellite-upper-troposphere-humidity
+  LAI:
+    Thematic_hub: 'Land Biosphere'
+    entry: 
+      - satellite-lai-fapar
+  FAPAR:
+    Thematic_hub: 'Land Biosphere'
+    entry: 
+      - satellite-lai-fapar
+  Lakes:
+    Thematic_hub: 'Land Hydrology'
+    entry: 
+      - satellite-lake-water-level
+      - satellite-lake-water-temperature
+  Land Cover: 
+    Thematic_hub: 'Land Biosphere'
+    entry:
+      - satellite-land-cover
+  Ocean Colour: 
+    Thematic_hub: 'Ocean'
+    entry: 
+      - satellite-ocean-colour
+  Ozone: 
+    Thematic_hub: 'Atmospheric Composition'
+    entry: 
+      - satellite-ozone-v1
+  Precipitation:
+    Thematic_hub: 'Atmospheric Physics'
+    entry: 
+      - satellite-precipitation 
+      - satellite-precipitation-microwave
+  Sea Ice:
+    Thematic_hub: 'Ocean'
+    entry:
+      - satellite-sea-ice
+      - satellite-sea-ice-concentration
+      - satellite-sea-ice-edge-type
+      # - satellite-sea-ice-temperature
+      - satellite-sea-ice-thickness
+      # - satellite-sea-ice-thickness-daily
+  Sea Level: 
+    Thematic_hub: 'Ocean'
+    entry:
+      - satellite-sea-level-black-sea
+      - satellite-sea-level-global
+      - satellite-sea-level-mediterranean
+  SST: 
+    Thematic_hub: 'Ocean'
+    entry:
+      - satellite-sea-surface-temperature
+      - satellite-sea-surface-temperature-complete
+      - satellite-sea-surface-temperature-ensemble-product
+  Soil Moisture: 
+    Thematic_hub: 'Land Hydrology'
+    entry: 
+      - satellite-soil-moisture
+  Surface Currents: 
+    Thematic_hub: 'Ocean'
+    entry:
+      - satellite-sea-level-global
+  Surface Radiation Budget: 
+    Thematic_hub: 'Atmospheric Physics'
+    entry: 
+      - satellite-surface-radiation-budget
+PRODUCT:
+  Aerosols:
+    Thematic_hub: 'Atmospheric Composition'
+    ECV: 'Aerosols'
+    Product: 'Aerosols'
+    entry: 
+      - satellite-aerosol-properties
+  CO2:
+    Thematic_hub: 'Atmospheric Composition'
+    ECV: 'Greenhouse Gases'
+    Product: 'CO2'
+    entry: 
+      - satellite-carbon-dioxide
+  CH4:
+    Thematic_hub: 'Atmospheric Composition'
+    ECV: 'Greenhouse Gases'
+    Product: 'CH4'
+    entry: 
+      - satellite-methane
+  Ozone: 
+    Thematic_hub: 'Atmospheric Composition'
+    ECV: 'Ozone'
+    Product: 'Ozone'
+    entry: 
+      - satellite-ozone-v1
+  Clouds_CCI: 
+    Thematic_hub: 'Atmospheric Physics'
+    ECV: 'Clouds'
+    Product: 'Clouds (CCI)'
+    entry: 
+      - satellite-cloud-properties
+  Clouds_CLARA: 
+    Thematic_hub: 'Atmospheric Physics'
+    ECV: 'Clouds'
+    Product: 'Clouds (CMSAF/CLARA)'
+    entry: 
+      - satellite-cloud-properties
+  NASA_CERES_ERB:
+    Thematic_hub: 'Atmospheric Physics'
+    ECV: 'Earth Radiation Budget'
+    Product: 'Earth Rad Budget - NASA CERES EBAF'
+    entry: 
+      - satellite-earth-radiation-budget
+  NOAA_HIRS:
+    Thematic_hub: 'Atmospheric Physics'
+    ECV: 'Earth Radiation Budget'
+    Product: 'Earth Rad Budget - NOAA/NCEI HIRS'
+    entry: 
+      - satellite-earth-radiation-budget
+  ESA_CLOUD_CCI_ERB:
+    Thematic_hub: 'Atmospheric Physics'
+    ECV: 'Earth Radiation Budget'
+    Product: 'Earth Rad Budget - ESA CLOUD CCI'
+    entry: 
+      - satellite-earth-radiation-budget
+  C3S_CCI_ERB:
+    Thematic_hub: 'Atmospheric Physics'
+    ECV: 'Earth Radiation Budget'
+    Product: 'Earth Rad Budget - C3S CCI'
+    entry: 
+      - satellite-earth-radiation-budget
+  C3S_RMIB_ERB:
+    Thematic_hub: 'Atmospheric Physics'
+    ECV: 'Earth Radiation Budget'
+    Product: 'Earth Rad Budget - C3S RMIB TotSolarIrrad'
+    entry: 
+      - satellite-earth-radiation-budget
+  Precipitation:
+    Thematic_hub: 'Atmospheric Physics'
+    ECV: 'Precipitation'
+    Product: 'Precipitation'
+    entry: 
+        - satellite-precipitation 
+  Precipitation_microwave:
+    Thematic_hub: 'Atmospheric Physics'
+    ECV: 'Precipitation'
+    Product: 'Precipitation_microwave'
+    entry: 
+      - satellite-precipitation-microwave
+  Surface Radiation Budget (CMSAF/CLARA): 
+    Thematic_hub: 'Atmospheric Physics'
+    ECV: 'Surface Radiation Budget'
+    Product: 'Surface Rad Budget - (CMSAF/CLARA)'
+    entry: 
+      - satellite-surface-radiation-budget
+  Surface Radiation Budget (CCI): 
+    Thematic_hub: 'Atmospheric Physics'
+    ECV: 'Surface Radiation Budget'
+    Product: 'Surface Rad Budget (CCI)'
+    entry: 
+      - satellite-surface-radiation-budget
+  Total Column Water Vapour (HOAPS):
+    Thematic_hub: 'Atmospheric Physics'
+    ECV: 'Upper-air Water Vapour'
+    Product: 'Total Column Water Vapour (HOAPS)'
+    entry: 
+      - satellite-total-column-water-vapour-ocean
+  Total Column Water Vapour (MERIS/SSMI):
+    Thematic_hub: 'Atmospheric Physics'
+    ECV: 'Upper-air Water Vapour'
+    Product: 'Total Column Water Vapour (MERIS/SSMI)'
+    entry: 
+      - satellite-total-column-water-vapour-land-ocean
+  Tropospheric Humidity Profiles (RO):
+    Thematic_hub: 'Atmospheric Physics'
+    ECV: 'Upper-air Water Vapour'
+    Product: 'Tropospheric Humidity Profiles (RO)'
+    entry: 
+      - satellite-humidity-profiles
+  Upper Tropospheric Humidity:
+    Thematic_hub: 'Atmospheric Physics'
+    ECV: 'Upper-air Water Vapour'
+    Product: 'Upper Tropospheric Humidity' 
+    entry: 
+      - satellite-upper-troposphere-humidity
+  Ice Sheet Velocity (Greenland):
+    Thematic_hub: 'Cryosphere'
+    ECV: 'Ice Sheets'
+    Product: 'Ice Sheet Velocity (Greenland)' 
+    entry: 
+      - satellite-greenland-ice-sheet-velocity
+  Ice Sheet Gravimetric Mass Balance:
+    Thematic_hub: 'Cryosphere'
+    ECV: 'Ice Sheets'
+    Product: 'Ice Sheet Gravimetric Mass Balance' 
+    entry: 
+      - satellite-ice-sheet-mass-balance
+  Ice Sheet Surface Elevation Change (Antarctica):
+    Thematic_hub: 'Cryosphere'
+    ECV: 'Ice Sheets'
+    Product: 'Ice Sheet Surface Elevation Change (Antarctica)' 
+    entry: 
+      - satellite-ice-sheet-elevation-change/
+  Ice Sheet Surface Elevation Change (Greenland):
+    Thematic_hub: 'Cryosphere'
+    ECV: 'Ice Sheets'
+    Product: 'Ice Sheet Surface Elevation Change (Greenland)' 
+    entry: 
+      - satellite-ice-sheet-elevation-change/
+  Glaciers elevation and mass change data:
+    Thematic_hub: 'Cryosphere'
+    ECV: 'Glaciers'
+    Product: 'Glaciers elevation and mass change data'
+    entry:
+      - derived-gridded-glacier-mass-change
+  Randolph Glacier Inventory for the year 2000:
+    Thematic_hub: 'Cryosphere'
+    ECV: 'Glaciers'
+    Product: 'Randolph Glacier Inventory for the year 2000'
+    entry:
+      - insitu-glaciers-extent
+  Lake Surface Temperature:
+    ECV: 'Lakes'
+    Product: Lake Surface Temperature
+    Thematic_hub: 'Land Hydrology'
+    entry: 
+      - satellite-lake-water-temperature
+  Lake Water Level:
+    Thematic_hub: 'Land Hydrology'
+    ECV: 'Lakes'
+    Product: 'Lake Water Level'
+    entry: 
+      - satellite-lake-water-level
+  Soil Moisture (active MW): 
+    Thematic_hub: 'Land Hydrology'
+    ECV: 'Soil Moisture'
+    Product: 'Soil Moisture (active MW)'
+    entry: 
+      - satellite-soil-moisture
+  Soil Moisture (passive MW): 
+    Thematic_hub: 'Land Hydrology'
+    ECV: 'Soil Moisture'
+    Product: 'Soil Moisture (passive MW)'
+    entry: 
+      - satellite-soil-moisture
+  Soil Moisture (active MW): 
+    Thematic_hub: 'Land Hydrology'
+    ECV: 'Soil Moisture'
+    Product: 'Soil Moisture (active MW)'
+    entry: 
+      - satellite-soil-moisture
+  Soil Moisture (merged): 
+    Thematic_hub: 'Land Hydrology'
+    ECV: 'Soil Moisture'
+    Product: 'Soil Moisture (merged)'
+    entry: 
+      - satellite-soil-moisture
+  LAI:
+    Thematic_hub: 'Land Biosphere'
+    ECV: 'LAI'
+    Product: 'LAI'
+    entry: 
+      - satellite-lai-fapar
+  FAPAR:
+    Thematic_hub: 'Land Biosphere'
+    ECV: 'FAPAR'
+    Product: 'FAPAR'
+    entry: 
+      - satellite-lai-fapar
+  Fire Burned Areas:
+    Thematic_hub: 'Land Biosphere'
+    ECV: 'Fire'
+    Product: 'Fire Burned Areas'
+    entry: 
+      - satellite-fire-burned-area
+  Fire Radiative Power:
+    Thematic_hub: 'Land Biosphere'
+    ECV: 'Fire'
+    Product: 'Fire Radiative Power'
+    entry: 
+      - satellite-fire-radiative-power
+  Land Cover: 
+    Thematic_hub: 'Land Biosphere'
+    ECV: 'Land Cover'
+    Product: 'Land Cover'
+    entry:
+      - satellite-land-cover
+  Surface Albedo 10-daily:
+    Thematic_hub: 'Land Biosphere'
+    ECV: 'Albedo'
+    Product: 'Surface Albedo 10-daily'
+    entry: 
+      - satellite-albedo
+  Ocean Colour: 
+    Thematic_hub: 'Ocean'
+    ECV: 'Ocean Colour'
+    Product: 'Ocean Colour'
+    entry: 
+      - satellite-ocean-colour
+  Sea Ice Concentration:
+    Thematic_hub: 'Ocean'
+    ECV: 'Sea Ice'
+    Product: 'Sea Ice Concentration'
+    entry:
+      - satellite-sea-ice-concentration
+  Sea Ice Edge and Type:
+    Thematic_hub: 'Ocean'
+    ECV: 'Sea Ice'
+    Product: 'Sea Ice Edge and Type'
+    entry:
+      - satellite-sea-ice-edge-type
+  Sea Ice Thickness:
+    Thematic_hub: 'Ocean'
+    ECV: 'Sea Ice'
+    Product: 'Sea Ice Thickness'
+    entry:
+      - satellite-sea-ice-thickness
+  SST: 
+    Thematic_hub: 'Ocean'
+    ECV: 'SST'
+    Product: 'SST'
+    entry:
+      - satellite-sea-surface-temperature
+  SST (ESA CCI GMPE): 
+    Thematic_hub: 'Ocean'
+    ECV: 'SST'
+    Product: 'SST (ESA CCI GMPE)'
+    entry:
+      - satellite-sea-surface-temperature-ensemble-product
+  Sea Level (Global): 
+    Thematic_hub: 'Ocean'
+    ECV: 'Sea Level'
+    Product: 'Sea Level (Global)'
+    entry:
+      - satellite-sea-level-global
+  Sea Level (Black Sea): 
+    Thematic_hub: 'Ocean'
+    ECV: 'Sea Level'
+    Product: 'Sea Level (Black Sea)'
+    entry:
+      - satellite-sea-level-black-sea
+  Sea Level (Mediterranean): 
+    Thematic_hub: 'Ocean'
+    ECV: 'Sea Level'
+    Product: 'Sea Level (Mediterranean)'
+    entry:   
+      - satellite-sea-level-mediterranean
+  Surface Currents: 
+    Thematic_hub: 'Ocean'
+    ECV: 'Surface Currents'
+    Product: 'Surface Geostrophic Currents'
+    entry:
+      - satellite-sea-level-global
+  
+
