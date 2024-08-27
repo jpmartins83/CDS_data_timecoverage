@@ -1,4 +1,4 @@
-cds_form_dir: /home/cxjo/C3S_stuff/cds-forms-c3s/
+cds_form_dir: /home/cxjo/C3S_stuff/cads-forms-json/
 datasets_dir: /home/cxjo/C3S_stuff/datasets/
 figs_dir: /home/cxjo/C3S_stuff/CDS_data_timecoverage/ECVs_time_coverage/
 ECV:
@@ -272,28 +272,10 @@ PRODUCT:
     Product: 'Lake Water Level'
     entry: 
       - satellite-lake-water-level
-  Soil Moisture (active MW): 
+  Soil Moisture: 
     Thematic_hub: 'Land Hydrology'
     ECV: 'Soil Moisture'
-    Product: 'Soil Moisture (active MW)'
-    entry: 
-      - satellite-soil-moisture
-  Soil Moisture (passive MW): 
-    Thematic_hub: 'Land Hydrology'
-    ECV: 'Soil Moisture'
-    Product: 'Soil Moisture (passive MW)'
-    entry: 
-      - satellite-soil-moisture
-  Soil Moisture (active MW): 
-    Thematic_hub: 'Land Hydrology'
-    ECV: 'Soil Moisture'
-    Product: 'Soil Moisture (active MW)'
-    entry: 
-      - satellite-soil-moisture
-  Soil Moisture (merged): 
-    Thematic_hub: 'Land Hydrology'
-    ECV: 'Soil Moisture'
-    Product: 'Soil Moisture (merged)'
+    Product: 'Soil Moisture'
     entry: 
       - satellite-soil-moisture
   LAI:
