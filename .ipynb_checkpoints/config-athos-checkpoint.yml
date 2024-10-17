@@ -1,4 +1,4 @@
-cds_form_dir: /home/cxjo/C3S_stuff/cads-forms-json/
+cds_form_dir: /home/cxjo/C3S_stuff/cds-forms-c3s/
 datasets_dir: /home/cxjo/C3S_stuff/datasets/
 figs_dir: /home/cxjo/C3S_stuff/CDS_data_timecoverage/ECVs_time_coverage/
 ECV:
@@ -95,6 +95,7 @@ ECV:
     Thematic_hub: 'Ocean'
     entry:
       - satellite-sea-surface-temperature
+      - satellite-sea-surface-temperature-complete
       - satellite-sea-surface-temperature-ensemble-product
   Soil Moisture: 
     Thematic_hub: 'Land Hydrology'
@@ -133,24 +134,18 @@ PRODUCT:
     Product: 'Ozone'
     entry: 
       - satellite-ozone-v1
-  Clouds: 
+  Clouds_CCI: 
     Thematic_hub: 'Atmospheric Physics'
     ECV: 'Clouds'
-    Product: 'Clouds'
+    Product: 'Clouds (CCI)'
     entry: 
       - satellite-cloud-properties
-  # Clouds_CCI: 
-  #   Thematic_hub: 'Atmospheric Physics'
-  #   ECV: 'Clouds'
-  #   Product: 'Clouds (CCI)'
-  #   entry: 
-  #     - satellite-cloud-properties
-  # Clouds_CLARA: 
-  #   Thematic_hub: 'Atmospheric Physics'
-  #   ECV: 'Clouds'
-  #   Product: 'Clouds (CMSAF/CLARA)'
-  #   entry: 
-  #     - satellite-cloud-properties
+  Clouds_CLARA: 
+    Thematic_hub: 'Atmospheric Physics'
+    ECV: 'Clouds'
+    Product: 'Clouds (CMSAF/CLARA)'
+    entry: 
+      - satellite-cloud-properties
   NASA_CERES_ERB:
     Thematic_hub: 'Atmospheric Physics'
     ECV: 'Earth Radiation Budget'
@@ -277,10 +272,28 @@ PRODUCT:
     Product: 'Lake Water Level'
     entry: 
       - satellite-lake-water-level
-  Soil Moisture: 
+  Soil Moisture (active MW): 
     Thematic_hub: 'Land Hydrology'
     ECV: 'Soil Moisture'
-    Product: 'Soil Moisture'
+    Product: 'Soil Moisture (active MW)'
+    entry: 
+      - satellite-soil-moisture
+  Soil Moisture (passive MW): 
+    Thematic_hub: 'Land Hydrology'
+    ECV: 'Soil Moisture'
+    Product: 'Soil Moisture (passive MW)'
+    entry: 
+      - satellite-soil-moisture
+  Soil Moisture (active MW): 
+    Thematic_hub: 'Land Hydrology'
+    ECV: 'Soil Moisture'
+    Product: 'Soil Moisture (active MW)'
+    entry: 
+      - satellite-soil-moisture
+  Soil Moisture (merged): 
+    Thematic_hub: 'Land Hydrology'
+    ECV: 'Soil Moisture'
+    Product: 'Soil Moisture (merged)'
     entry: 
       - satellite-soil-moisture
   LAI:
@@ -358,21 +371,21 @@ PRODUCT:
   Sea Level (Global): 
     Thematic_hub: 'Ocean'
     ECV: 'Sea Level'
-    Product: 'Sea Level'
+    Product: 'Sea Level (Global)'
     entry:
       - satellite-sea-level-global
-  # Sea Level (Black Sea): 
-  #   Thematic_hub: 'Ocean'
-  #   ECV: 'Sea Level'
-  #   Product: 'Sea Level (Black Sea)'
-  #   entry:
-  #     - satellite-sea-level-black-sea
-  # Sea Level (Mediterranean): 
-  #   Thematic_hub: 'Ocean'
-  #   ECV: 'Sea Level'
-  #   Product: 'Sea Level (Mediterranean)'
-  #   entry:   
-  #     - satellite-sea-level-mediterranean
+  Sea Level (Black Sea): 
+    Thematic_hub: 'Ocean'
+    ECV: 'Sea Level'
+    Product: 'Sea Level (Black Sea)'
+    entry:
+      - satellite-sea-level-black-sea
+  Sea Level (Mediterranean): 
+    Thematic_hub: 'Ocean'
+    ECV: 'Sea Level'
+    Product: 'Sea Level (Mediterranean)'
+    entry:   
+      - satellite-sea-level-mediterranean
   Surface Currents: 
     Thematic_hub: 'Ocean'
     ECV: 'Surface Currents'
