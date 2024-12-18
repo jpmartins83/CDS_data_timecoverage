@@ -76,6 +76,7 @@ ECV:
     entry: 
       - satellite-precipitation 
       - satellite-precipitation-microwave
+      - satellite-precipitation-microwave-infrared
   Sea Ice:
     Thematic_hub: 'Ocean'
     entry:
@@ -193,6 +194,12 @@ PRODUCT:
     Product: 'Precipitation_microwave'
     entry: 
       - satellite-precipitation-microwave
+  Precipitation_GIRAFE:
+    Thematic_hub: 'Atmospheric Physics'
+    ECV: 'Precipitation'
+    Product: 'Precipitation_GIRAFE'
+    entry: 
+      - satellite-precipitation-microwave-infrared
   Surface Radiation Budget (CMSAF/CLARA): 
     Thematic_hub: 'Atmospheric Physics'
     ECV: 'Surface Radiation Budget'
