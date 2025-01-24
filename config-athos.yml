@@ -1,5 +1,6 @@
 cds_form_dir: /home/cxjo/C3S_stuff/cads-forms-json/
 datasets_dir: /home/cxjo/C3S_stuff/datasets/
+cads_forms_yml_dir: '/home/cxjo/C3S_stuff/cads-forms-satellite/'
 figs_dir: /home/cxjo/C3S_stuff/CDS_data_timecoverage/ECVs_time_coverage/
 ECV:
   Aerosols:
@@ -134,54 +135,83 @@ PRODUCT:
     Product: 'Ozone'
     entry: 
       - satellite-ozone-v1
-  Clouds: 
+  CLOUDS_CLARA-A2: 
     Thematic_hub: 'Atmospheric Physics'
     ECV: 'Clouds'
-    Product: 'Clouds'
+    Product: 'Surface Rad Budget - CMSAF CLARA-A2'
+    product_family: 'clara_a2'
     entry: 
       - satellite-cloud-properties
-  # Clouds_CCI: 
-  #   Thematic_hub: 'Atmospheric Physics'
-  #   ECV: 'Clouds'
-  #   Product: 'Clouds (CCI)'
-  #   entry: 
-  #     - satellite-cloud-properties
-  # Clouds_CLARA: 
-  #   Thematic_hub: 'Atmospheric Physics'
-  #   ECV: 'Clouds'
-  #   Product: 'Clouds (CMSAF/CLARA)'
-  #   entry: 
-  #     - satellite-cloud-properties
-  NASA_CERES_ERB:
+  CLOUDS_CLARA-A3: 
+    Thematic_hub: 'Atmospheric Physics'
+    ECV: 'Clouds'
+    Product: 'Surface Rad Budget - CMSAF CLARA-A3'
+    product_family: 'clara_a3'
+    entry: 
+      - satellite-cloud-properties
+  CLOUDS_CCI_C3S: 
+    Thematic_hub: 'Atmospheric Physics'
+    ECV: 'Clouds'
+    Product: 'Surface Rad Budget - CCI/C3S'
+    product_family: 'cci'
+    entry: 
+      - satellite-cloud-properties
+  ERB_NASA_CERES:
     Thematic_hub: 'Atmospheric Physics'
     ECV: 'Earth Radiation Budget'
     Product: 'Earth Rad Budget - NASA CERES EBAF'
+    product_family: 'ceres_ebaf'
     entry: 
       - satellite-earth-radiation-budget
-  NOAA_HIRS:
+  ERB_NOAA_HIRS:
     Thematic_hub: 'Atmospheric Physics'
     ECV: 'Earth Radiation Budget'
     Product: 'Earth Rad Budget - NOAA/NCEI HIRS'
+    product_family: 'hirs'
     entry: 
       - satellite-earth-radiation-budget
-  ESA_CLOUD_CCI_ERB:
+  ERB_CCI_C3S:
     Thematic_hub: 'Atmospheric Physics'
     ECV: 'Earth Radiation Budget'
-    Product: 'Earth Rad Budget - ESA CLOUD CCI'
+    Product: 'Earth Rad Budget - CCI/C3S'
+    product_family: 'cci'
     entry: 
       - satellite-earth-radiation-budget
-  C3S_CCI_ERB:
-    Thematic_hub: 'Atmospheric Physics'
-    ECV: 'Earth Radiation Budget'
-    Product: 'Earth Rad Budget - C3S CCI'
-    entry: 
-      - satellite-earth-radiation-budget
-  C3S_RMIB_ERB:
+  ERB_RMIB_TSI:
     Thematic_hub: 'Atmospheric Physics'
     ECV: 'Earth Radiation Budget'
     Product: 'Earth Rad Budget - C3S RMIB TotSolarIrrad'
+    product_family: 'tsi'
     entry: 
       - satellite-earth-radiation-budget
+  ERB_CLARA-A3:
+    Thematic_hub: 'Atmospheric Physics'
+    ECV: 'Earth Radiation Budget'
+    Product: 'Earth Rad Budget - CMSAF CLARA-A3'
+    product_family: 'clara_a3'
+    entry: 
+      - satellite-earth-radiation-budget
+  SRB_CLARA-A2: 
+    Thematic_hub: 'Atmospheric Physics'
+    ECV: 'Surface Radiation Budget'
+    Product: 'Surface Rad Budget - CMSAF CLARA-A2'
+    product_family: 'clara_a2'
+    entry: 
+      - satellite-surface-radiation-budget
+  SRB_CLARA-A3: 
+    Thematic_hub: 'Atmospheric Physics'
+    ECV: 'Surface Radiation Budget'
+    Product: 'Surface Rad Budget - CMSAF CLARA-A3'
+    product_family: 'clara_a3'
+    entry: 
+      - satellite-surface-radiation-budget
+  SRB_CCI_C3S: 
+    Thematic_hub: 'Atmospheric Physics'
+    ECV: 'Surface Radiation Budget'
+    Product: 'Surface Rad Budget - CCI/C3S'
+    product_family: 'cci'
+    entry: 
+      - satellite-surface-radiation-budget
   Precipitation:
     Thematic_hub: 'Atmospheric Physics'
     ECV: 'Precipitation'
@@ -200,18 +230,6 @@ PRODUCT:
     Product: 'Precipitation_GIRAFE'
     entry: 
       - satellite-precipitation-microwave-infrared
-  Surface Radiation Budget (CMSAF/CLARA): 
-    Thematic_hub: 'Atmospheric Physics'
-    ECV: 'Surface Radiation Budget'
-    Product: 'Surface Rad Budget - (CMSAF/CLARA)'
-    entry: 
-      - satellite-surface-radiation-budget
-  Surface Radiation Budget (CCI): 
-    Thematic_hub: 'Atmospheric Physics'
-    ECV: 'Surface Radiation Budget'
-    Product: 'Surface Rad Budget (CCI)'
-    entry: 
-      - satellite-surface-radiation-budget
   Total Column Water Vapour (HOAPS):
     Thematic_hub: 'Atmospheric Physics'
     ECV: 'Upper-air Water Vapour'
@@ -350,16 +368,16 @@ PRODUCT:
     Product: 'Sea Ice Thickness'
     entry:
       - satellite-sea-ice-thickness
-  SST: 
+  SST (CCI): 
     Thematic_hub: 'Ocean'
     ECV: 'SST'
-    Product: 'SST'
+    Product: 'SST (CCI)'
     entry:
       - satellite-sea-surface-temperature
-  SST (ESA CCI GMPE): 
+  SST (GMPE): 
     Thematic_hub: 'Ocean'
     ECV: 'SST'
-    Product: 'SST (ESA CCI GMPE)'
+    Product: 'SST (GMPE)'
     entry:
       - satellite-sea-surface-temperature-ensemble-product
   Sea Level (Global): 
