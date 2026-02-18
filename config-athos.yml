@@ -87,11 +87,12 @@ ECV:
       # - satellite-sea-ice-temperature
       - satellite-sea-ice-thickness
       # - satellite-sea-ice-thickness-daily
+      - satellite-sea-ice-drift
   Sea Level: 
     Thematic_hub: 'Ocean'
     entry:
-      - satellite-sea-level-black-sea
-      - satellite-sea-level-global
+      # - satellite-sea-level-black-sea
+      # - satellite-sea-level-global
       - satellite-sea-level-mediterranean
   SST: 
     Thematic_hub: 'Ocean'
@@ -182,6 +183,13 @@ PRODUCT:
     ECV: 'Earth Radiation Budget'
     Product: 'Earth Rad Budget - TotSolarIrrad'
     product_family: 'tsi'
+    entry: 
+      - satellite-earth-radiation-budget
+  ERB_RMIB_SSI:
+    Thematic_hub: 'Atmospheric Physics'
+    ECV: 'Earth Radiation Budget'
+    Product: 'Earth Rad Budget - SpecSolarIrrad'
+    product_family: 'ssi'
     entry: 
       - satellite-earth-radiation-budget
   ERB_CLARA-A3:
@@ -374,10 +382,16 @@ PRODUCT:
     Product: 'Sea Ice Thickness'
     entry:
       - satellite-sea-ice-thickness
+  Sea Ice Drift:
+    Thematic_hub: 'Ocean'
+    ECV: 'Sea Ice'
+    Product: 'Sea Ice Drift'
+    entry:
+      - satellite-sea-ice-drift
   SST (CCI v2.1): 
     Thematic_hub: 'Ocean'
     ECV: 'SST'
-    Product: 'SST (CCI v2.1)'
+    Product: 'SST (CCI v3)'
     entry:
       - satellite-sea-surface-temperature
   SST (GMPE): 

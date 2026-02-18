@@ -1,0 +1,4 @@
+https://cds:5cXcRskEvMoMHrJQtxfy@cds.c3s.eodc.eu/service/ice_sheets/surface_elevation_change/GrIS/CDR/vers2/C3S_GrIS_RA_SEC_25km_vers2_2020-01-03.nc
+https://cds:5cXcRskEvMoMHrJQtxfy@cds.c3s.eodc.eu/service/ice_sheets/surface_elevation_change/GrIS/CDR/vers3/C3S_GrIS_RA_SEC_25km_vers3_2021-01-26.nc
+https://cds:5cXcRskEvMoMHrJQtxfy@cds.c3s.eodc.eu/service/ice_sheets/surface_elevation_change/GrIS/CDR/vers4/C3S_GrIS_RA_SEC_25km_vers4_2022-10-20.nc
+https://cds:5cXcRskEvMoMHrJQtxfy@cds.c3s.eodc.eu/service/ice_sheets/surface_elevation_change/GrIS/CDR/vers5/C3S_GrIS_RA_SEC_25km_vers5_2023-12-15.nc
