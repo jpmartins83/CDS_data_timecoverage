@@ -1,0 +1,51 @@
+Product,ECV,Thematic Hub,DateBeg,DateEnd
+Aerosols,Aerosols,Atmospheric Composition,1995-06-01,2025-07-31
+CH4,Greenhouse Gases,Atmospheric Composition,2002-10-01,2025-06-30
+CO2,Greenhouse Gases,Atmospheric Composition,2002-10-01,2025-06-30
+Ozone,Ozone,Atmospheric Composition,1970-04-01,2025-07-31
+Clouds - CCI/C3S,Clouds,Atmospheric Physics,1995-06-01,2023-12-31
+Clouds - CMSAF CLARA-A3,Clouds,Atmospheric Physics,1979-01-01,2025-06-30
+Earth Rad Budget - CCI/C3S,Earth Radiation Budget,Atmospheric Physics,1995-06-01,2023-12-31
+Earth Rad Budget - CMSAF CLARA-A3,Earth Radiation Budget,Atmospheric Physics,1979-01-01,2025-06-30
+Earth Rad Budget - NASA CERES EBAF,Earth Radiation Budget,Atmospheric Physics,2000-03-01,2026-05-31
+Earth Rad Budget - NOAA/NCEI HIRS,Earth Radiation Budget,Atmospheric Physics,1979-01-01,2025-09-07
+Earth Rad Budget - SpecSolarIrrad,Earth Radiation Budget,Atmospheric Physics,1979-01-01,2026-06-30
+Earth Rad Budget - TotSolarIrrad,Earth Radiation Budget,Atmospheric Physics,1979-01-01,2026-03-31
+Precipitation (COBRA),Precipitation,Atmospheric Physics,2000-01-01,2017-12-31
+Precipitation (GIRAFE),Precipitation,Atmospheric Physics,2002-01-01,2024-12-31
+Precipitation (GPCP),Precipitation,Atmospheric Physics,1979-01-01,2025-06-30
+Surface Rad Budget - CCI/C3S,Surface Radiation Budget,Atmospheric Physics,1995-06-01,2023-12-31
+Surface Rad Budget - CMSAF CLARA-A3,Surface Radiation Budget,Atmospheric Physics,1979-01-01,2025-06-30
+Total Column Water Vapour (HOAPS),Upper-air Water Vapour,Atmospheric Physics,1988-01-01,2020-12-31
+Total Column Water Vapour (MERIS/SSMI),Upper-air Water Vapour,Atmospheric Physics,2002-05-01,2017-12-31
+Tropospheric Humidity Profiles (RO),Upper-air Water Vapour,Atmospheric Physics,2006-12-01,2025-12-31
+Upper Tropospheric Humidity,Upper-air Water Vapour,Atmospheric Physics,1994-07-05,2021-02-28
+Glaciers elevation and mass change,Glaciers,Cryosphere,1975-04-01,2021-09-30
+Randolph Glacier Inventory for the year 2000,Glaciers,Cryosphere,1990-01-01,2010-12-31
+Ice Sheet Gravimetric Mass Balance,Ice Sheets,Cryosphere,2002-04-16,2023-12-17
+Ice Sheet Surface Elevation Change (Antarctica),Ice Sheets,Cryosphere,1994-11-01,2023-08-02
+Ice Sheet Surface Elevation Change (Greenland),Ice Sheets,Cryosphere,1992-01-01,2025-10-01
+Ice Sheet Velocity (Antarctica),Ice Sheets,Cryosphere,2021-04-01,2024-03-31
+Ice Sheet Velocity (Greenland),Ice Sheets,Cryosphere,2014-10-01,2024-09-30
+Surface Albedo,Albedo,Land Biosphere,1981-09-20,2024-12-31
+FAPAR,FAPAR,Land Biosphere,1981-09-20,2024-12-31
+Fire Burned Areas,Fire,Land Biosphere,2001-01-01,2023-12-01
+Fire Radiative Power,Fire,Land Biosphere,2020-01-01,2026-02-28
+LAI,LAI,Land Biosphere,1981-09-20,2024-12-31
+Land Cover,Land Cover,Land Biosphere,1992-01-01,2022-12-31
+Land Surface Temperature,Land Surface Temperature,Land Biosphere,1995-06-01,2025-06-30
+Lake Surface Temperature,Lakes,Land Hydrology,1995-06-01,2025-12-31
+Lake Water Level,Lakes,Land Hydrology,1992-09-26,2024-12-30
+Soil Moisture,Soil Moisture,Land Hydrology,1978-11-01,2026-08-31
+Terrestrial Water Storage,Terrestrial Water Storage,Land Hydrology,2002-04-01,2025-09-30
+Ocean Colour,Ocean Colour,Ocean,1997-09-01,2026-06-30
+SST (CCI v3),SST,Ocean,1979-07-13,2026-08-29
+SST (GMPE),SST,Ocean,1981-09-01,2016-12-31
+Sea and Sea Ice Surface Temperature,SST,Ocean,1982-01-01,2026-08-11
+Sea Ice Concentration,Sea Ice,Ocean,1978-10-01,2026-08-29
+Sea Ice Drift,Sea Ice,Ocean,1991-01-01,2020-12-31
+Sea Ice Edge and Type,Sea Ice,Ocean,1978-10-25,2026-08-29
+Sea Ice Surface Temperature,Sea Ice,Ocean,1982-01-01,2026-07-31
+Sea Ice Thickness,Sea Ice,Ocean,1995-10-01,2026-04-30
+Sea Level,Sea Level,Ocean,1993-01-01,2026-01-16
+Surface Geostrophic Currents,Surface Currents,Ocean,1993-01-01,2026-01-16

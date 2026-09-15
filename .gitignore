@@ -1,0 +1,5 @@
+# cron wrapper output
+logs/
+
+# filled-in copy of ecv_coverage_env.template, in case it is kept here
+.ecv_coverage_env

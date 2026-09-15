@@ -55,6 +55,10 @@ ECV:
     Thematic_hub: 'Land Biosphere'
     entry: 
       - satellite-lai-fapar
+  Land Surface Temperature: 
+    Thematic_hub: 'Land Biosphere'
+    entry:
+      - satellite-land-surface-temperature
   Lakes:
     Thematic_hub: 'Land Hydrology'
     entry: 
@@ -84,7 +88,7 @@ ECV:
       - satellite-sea-ice
       - satellite-sea-ice-concentration
       - satellite-sea-ice-edge-type
-      # - satellite-sea-ice-temperature
+      - satellite-ist-sst-polar
       - satellite-sea-ice-thickness
       # - satellite-sea-ice-thickness-daily
       - satellite-sea-ice-drift
@@ -98,11 +102,16 @@ ECV:
     Thematic_hub: 'Ocean'
     entry:
       - satellite-sea-surface-temperature
+      - satellite-ist-sst-global
       - satellite-sea-surface-temperature-ensemble-product
   Soil Moisture: 
     Thematic_hub: 'Land Hydrology'
     entry: 
       - satellite-soil-moisture
+  Terrestrial Water Storage: 
+    Thematic_hub: 'Land Hydrology'
+    entry: 
+      - satellite-terrestrial-water-storage
   Surface Currents: 
     Thematic_hub: 'Ocean'
     entry:
@@ -322,6 +331,12 @@ PRODUCT:
     Product: 'Soil Moisture'
     entry: 
       - satellite-soil-moisture
+  Terrestrial Water Storage: 
+    Thematic_hub: 'Land Hydrology'
+    ECV: 'Terrestrial Water Storage'
+    Product: 'Terrestrial Water Storage'
+    entry: 
+      - satellite-terrestrial-water-storage
   LAI:
     Thematic_hub: 'Land Biosphere'
     ECV: 'LAI'
@@ -352,6 +367,12 @@ PRODUCT:
     Product: 'Land Cover'
     entry:
       - satellite-land-cover
+  Land Surface Temperature: 
+    Thematic_hub: 'Land Biosphere'
+    ECV: 'Land Surface Temperature'
+    Product: 'Land Surface Temperature'
+    entry:
+      - satellite-land-surface-temperature
   Surface Albedo 10-daily:
     Thematic_hub: 'Land Biosphere'
     ECV: 'Albedo'
@@ -388,12 +409,24 @@ PRODUCT:
     Product: 'Sea Ice Drift'
     entry:
       - satellite-sea-ice-drift
-  SST (CCI v2.1): 
+  Sea Ice Surface Temperature:
+    Thematic_hub: 'Ocean'
+    ECV: 'Sea Ice'
+    Product: 'Sea Ice Surface Temperature'
+    entry:
+      - satellite-ist-sst-polar
+  SST (CCI v3): 
     Thematic_hub: 'Ocean'
     ECV: 'SST'
     Product: 'SST (CCI v3)'
     entry:
       - satellite-sea-surface-temperature
+  Sea and Sea Ice Surface Temperature (DMI):
+    Thematic_hub: 'Ocean'
+    ECV: 'SST'
+    Product: 'Sea and Sea Ice Surface Temperature'
+    entry:
+      - satellite-ist-sst-global
   SST (GMPE): 
     Thematic_hub: 'Ocean'
     ECV: 'SST'

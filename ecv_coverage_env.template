@@ -1,0 +1,18 @@
+# Template for ~/.ecv_coverage_env, sourced by run_weekly.sh.
+#
+#   cp ecv_coverage_env.template ~/.ecv_coverage_env
+#   chmod 600 ~/.ecv_coverage_env
+#   # then fill in the three values below
+#
+# Do NOT commit the filled-in file.
+
+# ECMWF Sites token for the cxjo/ecv-info site (same value as in ~/.bashrc).
+export ECMWF_SITES_TOKEN=""
+
+# Manifest servers. These were hard-coded in
+# coverage_per_lot_from_constraints_v2.ipynb; copy them from there.
+export ENVEO_PASSWORD=""   # ice sheet elevation change / velocity manifests
+export EODC_PASSWORD=""    # TWSA, lake water level, gravimetric mass balance
+
+# Optional: user for both manifest servers (defaults to "cds").
+# export CDS_MANIFEST_USER="cds"

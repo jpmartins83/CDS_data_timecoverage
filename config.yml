@@ -81,7 +81,7 @@ ECV:
       - satellite-sea-ice
       - satellite-sea-ice-concentration
       - satellite-sea-ice-edge-type
-      # - satellite-sea-ice-temperature
+      - satellite-ist-sst-polar
       - satellite-sea-ice-thickness
       # - satellite-sea-ice-thickness-daily
   Sea Level: 
@@ -94,6 +94,7 @@ ECV:
     Thematic_hub: 'Ocean'
     entry:
       - satellite-sea-surface-temperature
+      - satellite-ist-sst-global
       - satellite-sea-surface-temperature-complete
       - satellite-sea-surface-temperature-ensemble-product
   Soil Moisture: 
@@ -283,12 +284,6 @@ PRODUCT:
     Product: 'Soil Moisture (passive MW)'
     entry: 
       - satellite-soil-moisture
-  Soil Moisture (active MW): 
-    Thematic_hub: 'Land Hydrology'
-    ECV: 'Soil Moisture'
-    Product: 'Soil Moisture (active MW)'
-    entry: 
-      - satellite-soil-moisture
   Soil Moisture (merged): 
     Thematic_hub: 'Land Hydrology'
     ECV: 'Soil Moisture'
@@ -355,12 +350,24 @@ PRODUCT:
     Product: 'Sea Ice Thickness'
     entry:
       - satellite-sea-ice-thickness
+  Sea Ice Surface Temperature:
+    Thematic_hub: 'Ocean'
+    ECV: 'Sea Ice'
+    Product: 'Sea Ice Surface Temperature'
+    entry:
+      - satellite-ist-sst-polar
   SST: 
     Thematic_hub: 'Ocean'
     ECV: 'SST'
     Product: 'SST'
     entry:
       - satellite-sea-surface-temperature
+  Sea and Sea Ice Surface Temperature (DMI):
+    Thematic_hub: 'Ocean'
+    ECV: 'SST'
+    Product: 'Sea and Sea Ice Surface Temperature'
+    entry:
+      - satellite-ist-sst-global
   SST (ESA CCI GMPE): 
     Thematic_hub: 'Ocean'
     ECV: 'SST'
