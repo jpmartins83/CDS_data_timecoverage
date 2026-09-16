@@ -108,6 +108,11 @@ ECV:
     Thematic_hub: 'Land Hydrology'
     entry: 
       - satellite-soil-moisture
+  Snow: 
+    Thematic_hub: 'Cryosphere'
+    entry:
+      - satellite-snow-cover-extent
+      - satellite-snow-water-equivalent
   Terrestrial Water Storage: 
     Thematic_hub: 'Land Hydrology'
     entry: 
@@ -439,6 +444,18 @@ PRODUCT:
     Product: 'Sea Level'
     entry:
       - satellite-sea-level-global
+  Snow Cover Extent: 
+    Thematic_hub: 'Cryosphere'
+    ECV: 'Snow'
+    Product: 'Snow Cover Extent'
+    entry:
+      - satellite-snow-cover-extent
+  Snow Water Equivalent: 
+    Thematic_hub: 'Cryosphere'
+    ECV: 'Snow'
+    Product: 'Snow Water Equivalent'
+    entry:
+      - satellite-snow-water-equivalent
   # Sea Level (Black Sea): 
   #   Thematic_hub: 'Ocean'
   #   ECV: 'Sea Level'

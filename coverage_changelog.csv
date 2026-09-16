@@ -4,3 +4,6 @@ run_date,change,Product,ECV,Thematic Hub,DateBeg_old,DateEnd_old,DateBeg_new,Dat
 20260916,extended,SST (CCI v3),SST,Ocean,1979-07-13,2026-08-29,1979-07-13,2026-08-30
 20260916,extended,Sea Ice Concentration,Sea Ice,Ocean,1978-10-01,2026-08-29,1978-10-01,2026-08-31
 20260916,extended,Sea Ice Edge and Type,Sea Ice,Ocean,1978-10-25,2026-08-29,1978-10-25,2026-08-31
+20260916,added,Snow Cover Extent,Snow,Cryosphere,,,1982-01-01,2025-12-31
+20260916,added,Snow Water Equivalent,Snow,Cryosphere,,,1979-01-01,2025-12-31
+20260916,extended,SST (CCI v3),SST,Ocean,1979-07-13,2026-08-30,1979-07-13,2026-09-01
