@@ -1,0 +1,6 @@
+run_date,change,Product,ECV,Thematic Hub,DateBeg_old,DateEnd_old,DateBeg_new,DateEnd_new
+20260916,extended,Aerosols,Aerosols,Atmospheric Composition,1995-06-01,2025-07-31,1995-06-01,2025-12-31
+20260916,extended,Soil Moisture,Soil Moisture,Land Hydrology,1978-11-01,2026-08-31,1978-11-01,2026-09-30
+20260916,extended,SST (CCI v3),SST,Ocean,1979-07-13,2026-08-29,1979-07-13,2026-08-30
+20260916,extended,Sea Ice Concentration,Sea Ice,Ocean,1978-10-01,2026-08-29,1978-10-01,2026-08-31
+20260916,extended,Sea Ice Edge and Type,Sea Ice,Ocean,1978-10-25,2026-08-29,1978-10-25,2026-08-31

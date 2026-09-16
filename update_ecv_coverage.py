@@ -12,7 +12,19 @@ Converted from coverage_per_lot_from_constraints_v2.ipynb for unattended
   3. write the per-ECV and per-product spreadsheets and figures;
   4. diff the per-product coverage against the previous run and append the
      differences to a change log (see "Change tracking" below);
-  5. upload the per-product PNG to https://sites.ecmwf.int/cxjo/ecv-info/ .
+  5. upload the per-product PNG, the two change-tracking CSVs and an HTML
+     rendering of the change log to https://sites.ecmwf.int/cxjo/ecv-info/ .
+
+What ends up on ECMWF Sites, all under names that do not change from week to
+week, so a Confluence page can link to them once:
+
+  temporal_coverage_by_Product_latest.png  the figure (also uploaded dated)
+  coverage_changelog.html                  the change log as a table; this is
+                                           what a Confluence HTML macro should
+                                           point an <iframe> at, since a .csv
+                                           is downloaded rather than displayed
+  coverage_changelog.csv                   the same data, for download
+  coverage_state.csv                       the current coverage, for download
 
 Change tracking
 ---------------
@@ -67,6 +79,7 @@ import shutil
 import subprocess
 import sys
 from calendar import monthrange
+from html import escape
 from functools import lru_cache
 from glob import glob
 from pathlib import Path
@@ -757,14 +770,158 @@ def track_changes(prod_pd: pd.DataFrame, outdir: Path, today: str) -> pd.DataFra
 
 
 # ---------------------------------------------------------------------------
+# HTML rendering of the change log, for the Confluence HTML macro
+# ---------------------------------------------------------------------------
+# text colour, background, for the "change" badge
+CHANGE_STYLES = {
+    "added":        ("#14406e", "#e4ecf6"),
+    "removed":      ("#4a4a4a", "#e9e9e9"),
+    "extended":     ("#1f6b27", "#e5f3e7"),
+    "shortened":    ("#a32116", "#fbe9e7"),
+    "modified":     ("#8a5300", "#fdf1df"),
+    "reclassified": ("#5c1a86", "#f2e6f8"),
+}
+
+HTML_PAGE = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>C3S ECV time coverage &mdash; change log</title>
+<style>
+  :root {{ color-scheme: light; }}
+  body {{ margin: 0; padding: 18px;
+         font: 14px/1.45 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+         color: #24292f; background: #fff; }}
+  h1 {{ font-size: 18px; margin: 0 0 4px; }}
+  p.meta {{ margin: 0 0 16px; color: #57606a; font-size: 13px; }}
+  p.meta a {{ color: #0b5cad; }}
+  .wrap {{ overflow-x: auto; }}
+  table {{ border-collapse: collapse; width: 100%; min-width: 760px; }}
+  th, td {{ padding: 6px 10px; text-align: left; vertical-align: top;
+           border-bottom: 1px solid #eaecef; white-space: nowrap; }}
+  th {{ position: sticky; top: 0; background: #f6f8fa; font-weight: 600;
+       border-bottom: 2px solid #d8dee4; z-index: 1; }}
+  tr.newrun td {{ border-top: 2px solid #d8dee4; }}
+  td.product {{ white-space: normal; font-weight: 600; }}
+  td.hub, td.ecv {{ color: #57606a; }}
+  td.dates {{ font-variant-numeric: tabular-nums; }}
+  .badge {{ display: inline-block; padding: 1px 8px; border-radius: 10px;
+           font-size: 12px; font-weight: 600; }}
+  .none {{ color: #57606a; }}
+  .arrow {{ color: #8c959f; padding: 0 2px; }}
+  @media (max-width: 600px) {{ body {{ padding: 10px; }} }}
+</style>
+</head>
+<body>
+<h1>C3S ECV time coverage &mdash; change log</h1>
+<p class="meta">{summary}<br>
+Generated {generated} &middot;
+<a href="temporal_coverage_by_Product_latest.png">current figure</a> &middot;
+<a href="coverage_changelog.csv">changelog CSV</a> &middot;
+<a href="coverage_state.csv">current coverage CSV</a></p>
+{body}
+</body>
+</html>
+"""
+
+
+def _badge(change: str) -> str:
+    fg, bg = CHANGE_STYLES.get(change, ("#24292f", "#eaecef"))
+    return (f'<span class="badge" style="color:{fg};background:{bg}">'
+            f'{escape(change)}</span>')
+
+
+def _range(beg: str, end: str) -> str:
+    if not beg and not end:
+        return '<span class="none">&mdash;</span>'
+    return (f'{escape(beg) or "?"}<span class="arrow">&rarr;</span>'
+            f'{escape(end) or "?"}')
+
+
+def write_changelog_html(outdir: Path) -> Path:
+    """Render coverage_changelog.csv as a standalone HTML page.
+
+    A .csv is downloaded rather than displayed by the browser, so this page is
+    what a Confluence HTML macro should point at:
+
+        <iframe src="https://sites.ecmwf.int/cxjo/ecv-info/coverage_changelog.html"
+                width="100%" height="800" style="border:0"></iframe>
+
+    Everything is inlined, so the page needs no external request to render.
+    """
+    changelog_file = outdir / "coverage_changelog.csv"
+    state_file = outdir / "coverage_state.csv"
+    html_file = outdir / "coverage_changelog.html"
+
+    generated = pd.Timestamp.now().strftime("%d %b %Y %H:%M UTC")
+
+    n_products = None
+    if state_file.exists():
+        n_products = len(pd.read_csv(state_file))
+
+    if not changelog_file.exists():
+        summary = "No changes recorded yet."
+        if n_products is not None:
+            summary = (f"{n_products} products tracked. "
+                       "No changes recorded yet.")
+        body = '<p class="none">The change log is still empty.</p>'
+        html_file.write_text(HTML_PAGE.format(
+            summary=summary, generated=generated, body=body), encoding="utf-8")
+        LOG.info("wrote %s", html_file)
+        return html_file
+
+    log = pd.read_csv(changelog_file, dtype=str).fillna("")
+    log = log.sort_values(["run_date", "Thematic Hub", "Product"],
+                          ascending=[False, True, True])
+
+    last_run = log["run_date"].max()
+    n_last = int((log["run_date"] == last_run).sum())
+    last_run_fmt = pd.to_datetime(last_run, format="%Y%m%d").strftime("%d %b %Y")
+
+    summary = (f"{n_last} change(s) in the run of {last_run_fmt}; "
+               f"{len(log)} change(s) recorded in total")
+    if n_products is not None:
+        summary += f", across {n_products} tracked products"
+    summary += "."
+
+    rows = []
+    previous_run = None
+    for _, r in log.iterrows():
+        run = r["run_date"]
+        cls = ' class="newrun"' if previous_run is not None and run != previous_run else ""
+        previous_run = run
+        run_fmt = pd.to_datetime(run, format="%Y%m%d").strftime("%Y-%m-%d")
+        rows.append(
+            f"<tr{cls}>"
+            f'<td class="dates">{escape(run_fmt)}</td>'
+            f"<td>{_badge(r['change'])}</td>"
+            f'<td class="product">{escape(r["Product"])}</td>'
+            f'<td class="ecv">{escape(r["ECV"])}</td>'
+            f'<td class="hub">{escape(r["Thematic Hub"])}</td>'
+            f'<td class="dates">{_range(r["DateBeg_old"], r["DateEnd_old"])}</td>'
+            f'<td class="dates">{_range(r["DateBeg_new"], r["DateEnd_new"])}</td>'
+            "</tr>"
+        )
+
+    body = (
+        '<div class="wrap"><table>\n'
+        "<thead><tr><th>Run</th><th>Change</th><th>Product</th><th>ECV</th>"
+        "<th>Thematic hub</th><th>Coverage before</th><th>Coverage after</th>"
+        "</tr></thead>\n<tbody>\n" + "\n".join(rows) + "\n</tbody></table></div>"
+    )
+
+    html_file.write_text(HTML_PAGE.format(
+        summary=summary, generated=generated, body=body), encoding="utf-8")
+    LOG.info("wrote %s", html_file)
+    return html_file
+
+
+# ---------------------------------------------------------------------------
 # upload
 # ---------------------------------------------------------------------------
-def upload_to_sites(png: Path, outdir: Path) -> None:
-    """Upload the per-product figure to https://sites.ecmwf.int/cxjo/ecv-info/.
-
-    Both the dated file and a stable temporal_coverage_by_Product_latest.png
-    are uploaded, so pages can link to a URL that does not change every week.
-    """
+def upload_to_sites(paths) -> list[str]:
+    """Upload files to https://sites.ecmwf.int/cxjo/ecv-info/ and return the URLs."""
     from sites.sdk.sites import Authenticator, Site
 
     try:
@@ -774,17 +931,40 @@ def upload_to_sites(png: Path, outdir: Path) -> None:
             "ECMWF_SITES_TOKEN is not set; export it before running, or use "
             "--no-upload")
 
-    latest = outdir / "temporal_coverage_by_Product_latest.png"
-    shutil.copyfile(png, latest)
-
     site = Site(space=SITES_SPACE, name=SITES_NAME)
     content = site.get_content_manager(
         authenticator=Authenticator.from_token(token=token))
 
-    for path in (png, latest):
+    urls = []
+    for path in paths:
+        if not Path(path).exists():
+            LOG.warning("not uploading %s: it does not exist", path)
+            continue
         content.upload(local_path=str(path), remote_path=SITES_REMOTE_PATH)
-        LOG.info("uploaded https://sites.ecmwf.int/%s/%s/%s",
-                 SITES_SPACE, SITES_NAME, path.name)
+        url = (f"https://sites.ecmwf.int/{SITES_SPACE}/{SITES_NAME}/"
+               f"{Path(path).name}")
+        LOG.info("uploaded %s", url)
+        urls.append(url)
+    return urls
+
+
+def site_uploads(png: Path, outdir: Path) -> list[Path]:
+    """The files published to ECMWF Sites on every run.
+
+    The figure goes up twice: under its dated name, and as
+    temporal_coverage_by_Product_latest.png so that a page can link to a URL
+    that does not change every week.  The two CSVs and the HTML rendering of
+    the change log go up under fixed names for the same reason.
+    """
+    latest = outdir / "temporal_coverage_by_Product_latest.png"
+    shutil.copyfile(png, latest)
+    return [
+        png,
+        latest,
+        outdir / "coverage_changelog.html",
+        outdir / "coverage_changelog.csv",
+        outdir / "coverage_state.csv",
+    ]
 
 
 # ---------------------------------------------------------------------------
@@ -834,23 +1014,26 @@ def main(argv=None) -> int:
     else:
         update_forms_repo(CDS_FORM_DIR, branch="prod")
 
-    if not args.skip_ecv:
-        ecv_pd = coverage_by_ecv()
-        print(ecv_pd.to_markdown())
-        ecv_pd.to_excel(outdir / f"ECV_time_coverage_perECV_{today}.xlsx")
-        figure_by_ecv(order_ecvs(ecv_pd), outdir, today)
+    # uncomment if needed
+
+    # if not args.skip_ecv:
+    #     ecv_pd = coverage_by_ecv()
+    #     print(ecv_pd.to_markdown())
+    #     # ecv_pd.to_excel(outdir / f"ECV_time_coverage_perECV_{today}.xlsx")
+    #     figure_by_ecv(order_ecvs(ecv_pd), outdir, today)
 
     prod_pd = coverage_by_product()
     print(prod_pd.to_markdown())
-    prod_pd.to_excel(outdir / f"ECV_time_coverage_perProduct_{today}.xlsx")
+    # prod_pd.to_excel(outdir / f"ECV_time_coverage_perProduct_{today}.xlsx")
     png = figure_by_product(prod_pd, outdir, today)
 
     track_changes(prod_pd, outdir, today)
+    write_changelog_html(outdir)
 
     if args.no_upload:
         LOG.info("skipping the upload (--no-upload)")
     else:
-        upload_to_sites(png, outdir)
+        upload_to_sites(site_uploads(png, outdir))
 
     LOG.info("done")
     return 0
