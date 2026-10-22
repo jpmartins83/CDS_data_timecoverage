@@ -130,24 +130,28 @@ PRODUCT:
     Thematic_hub: 'Atmospheric Composition'
     ECV: 'Aerosols'
     Product: 'Aerosols'
+    subproduct: [sensor_on_satellite, algorithm]
     entry: 
       - satellite-aerosol-properties
   CO2:
     Thematic_hub: 'Atmospheric Composition'
     ECV: 'Greenhouse Gases'
     Product: 'CO2'
+    subproduct: [sensor_and_algorithm]
     entry: 
       - satellite-carbon-dioxide
   CH4:
     Thematic_hub: 'Atmospheric Composition'
     ECV: 'Greenhouse Gases'
     Product: 'CH4'
+    subproduct: [sensor_and_algorithm]
     entry: 
       - satellite-methane
   Ozone: 
     Thematic_hub: 'Atmospheric Composition'
     ECV: 'Ozone'
     Product: 'Ozone'
+    subproduct: [sensor, algorithm]
     entry: 
       - satellite-ozone-v1
   # CLOUDS_CLARA-A2: 
@@ -162,6 +166,7 @@ PRODUCT:
     ECV: 'Clouds'
     Product: 'Clouds - CMSAF CLARA-A3'
     product_family: 'clara_a3'
+    version: 'A3'
     entry: 
       - satellite-cloud-properties
   CLOUDS_CCI_C3S: 
@@ -169,6 +174,16 @@ PRODUCT:
     ECV: 'Clouds'
     Product: 'Clouds - CCI/C3S'
     product_family: 'cci'
+    subproduct: [sensor_on_satellite]
+    version:
+      key: sensor_on_satellite
+      values:
+        atsr2_on_ers2: 'v3.0'
+        aatsr_on_envisat: 'v3.0'
+        slstr_on_sentinel_3a: 'v3.1.1'
+        slstr_on_sentinel_3b: 'v3.1.1'
+        slstr_on_sentinel_3a_3b: 'v4.0'
+        slstr_on_sentinel_3a_3b_ea: 'v4.0'
     entry: 
       - satellite-cloud-properties
   ERB_NASA_CERES:
@@ -176,6 +191,9 @@ PRODUCT:
     ECV: 'Earth Radiation Budget'
     Product: 'Earth Rad Budget - NASA CERES EBAF'
     product_family: 'ceres_ebaf'
+    version_manifest:
+      select: ERB_CERES
+      pattern: '/tcdr/(v[0-9.]+)/'
     entry: 
       - satellite-earth-radiation-budget
   ERB_NOAA_HIRS:
@@ -190,6 +208,16 @@ PRODUCT:
     ECV: 'Earth Radiation Budget'
     Product: 'Earth Rad Budget - CCI/C3S'
     product_family: 'cci'
+    subproduct: [sensor_on_satellite]
+    version:
+      key: sensor_on_satellite
+      values:
+        atsr2: 'v3.0'
+        aatsr: 'v3.0'
+        slstr_on_sentinel_3a: 'v3.1.1'
+        slstr_on_sentinel_3b: 'v3.1.1'
+        slstr_on_sentinel_3a_3b: 'v4.0'
+        slstr_on_sentinel_3a_3b_ea: 'v4.0'
     entry: 
       - satellite-earth-radiation-budget
   ERB_RMIB_TSI:
@@ -204,6 +232,9 @@ PRODUCT:
     ECV: 'Earth Radiation Budget'
     Product: 'Earth Rad Budget - SpecSolarIrrad'
     product_family: 'ssi'
+    version_manifest:
+      select: NNL_SSI
+      pattern: '/(v[0-9]+r[0-9]+)/'
     entry: 
       - satellite-earth-radiation-budget
   ERB_CLARA-A3:
@@ -211,6 +242,7 @@ PRODUCT:
     ECV: 'Earth Radiation Budget'
     Product: 'Earth Rad Budget - CMSAF CLARA-A3'
     product_family: 'clara_a3'
+    version: 'A3'
     entry: 
       - satellite-earth-radiation-budget
   # SRB_CLARA-A2: 
@@ -225,6 +257,7 @@ PRODUCT:
     ECV: 'Surface Radiation Budget'
     Product: 'Surface Rad Budget - CMSAF CLARA-A3'
     product_family: 'clara_a3'
+    version: 'A3'
     entry: 
       - satellite-surface-radiation-budget
   SRB_CCI_C3S: 
@@ -232,6 +265,16 @@ PRODUCT:
     ECV: 'Surface Radiation Budget'
     Product: 'Surface Rad Budget - CCI/C3S'
     product_family: 'cci'
+    subproduct: [sensor_on_satellite]
+    version:
+      key: sensor_on_satellite
+      values:
+        atsr2_on_ers2: 'v3.0'
+        aatsr_on_envisat: 'v3.0'
+        slstr_on_sentinel_3a: 'v3.1.1'
+        slstr_on_sentinel_3b: 'v3.1.1'
+        slstr_on_sentinel_3a_3b: 'v4.0'
+        slstr_on_sentinel_3a_3b_ea: 'v4.0'
     entry: 
       - satellite-surface-radiation-budget
   Precipitation:
@@ -256,24 +299,36 @@ PRODUCT:
     Thematic_hub: 'Atmospheric Physics'
     ECV: 'Upper-air Water Vapour'
     Product: 'Total Column Water Vapour (HOAPS)'
+    version_manifest:
+      select: hoaps
+      pattern: '/(v[0-9.]+)/[0-9]{4}/'
+      by: climate_data_record_type
     entry: 
       - satellite-total-column-water-vapour-ocean
   Total Column Water Vapour (MERIS/SSMI):
     Thematic_hub: 'Atmospheric Physics'
     ECV: 'Upper-air Water Vapour'
     Product: 'Total Column Water Vapour (MERIS/SSMI)'
+    subproduct: [product]
+    version_manifest:
+      pattern: '/(v[0-9.]+)/[0-9]{4}/'
     entry: 
       - satellite-total-column-water-vapour-land-ocean
   Tropospheric Humidity Profiles (RO):
     Thematic_hub: 'Atmospheric Physics'
     ECV: 'Upper-air Water Vapour'
     Product: 'Tropospheric Humidity Profiles (RO)'
+    subproduct: [product_type]
+    version_manifest:
+      source: list-study.txt
+      pattern: '_([0-9]{3})[0-9]$'
     entry: 
       - satellite-humidity-profiles
   Upper Tropospheric Humidity:
     Thematic_hub: 'Atmospheric Physics'
     ECV: 'Upper-air Water Vapour'
     Product: 'Upper Tropospheric Humidity' 
+    subproduct: [sensor_on_satellite]
     entry: 
       - satellite-upper-troposphere-humidity
   Ice Sheet Velocity (Greenland):
@@ -334,6 +389,7 @@ PRODUCT:
     Thematic_hub: 'Land Hydrology'
     ECV: 'Soil Moisture'
     Product: 'Soil Moisture'
+    subproduct: [type_of_sensor]
     entry: 
       - satellite-soil-moisture
   Terrestrial Water Storage: 
@@ -346,24 +402,28 @@ PRODUCT:
     Thematic_hub: 'Land Biosphere'
     ECV: 'LAI'
     Product: 'LAI'
+    subproduct: [sensor, satellite]
     entry: 
       - satellite-lai-fapar
   FAPAR:
     Thematic_hub: 'Land Biosphere'
     ECV: 'FAPAR'
     Product: 'FAPAR'
+    subproduct: [sensor, satellite]
     entry: 
       - satellite-lai-fapar
   Fire Burned Areas:
     Thematic_hub: 'Land Biosphere'
     ECV: 'Fire'
     Product: 'Fire Burned Areas'
+    subproduct: [sensor]
     entry: 
       - satellite-fire-burned-area
   Fire Radiative Power:
     Thematic_hub: 'Land Biosphere'
     ECV: 'Fire'
     Product: 'Fire Radiative Power'
+    subproduct: [satellite]
     entry: 
       - satellite-fire-radiative-power
   Land Cover: 
@@ -382,6 +442,7 @@ PRODUCT:
     Thematic_hub: 'Land Biosphere'
     ECV: 'Albedo'
     Product: 'Surface Albedo'
+    subproduct: [sensor, satellite]
     entry: 
       - satellite-albedo
   Ocean Colour: 
@@ -394,6 +455,7 @@ PRODUCT:
     Thematic_hub: 'Ocean'
     ECV: 'Sea Ice'
     Product: 'Sea Ice Concentration'
+    subproduct: [sensor]
     entry:
       - satellite-sea-ice-concentration
   Sea Ice Edge and Type:
@@ -406,6 +468,7 @@ PRODUCT:
     Thematic_hub: 'Ocean'
     ECV: 'Sea Ice'
     Product: 'Sea Ice Thickness'
+    subproduct: [satellite_mission]
     entry:
       - satellite-sea-ice-thickness
   Sea Ice Drift:
@@ -424,6 +487,7 @@ PRODUCT:
     Thematic_hub: 'Ocean'
     ECV: 'SST'
     Product: 'SST (CCI v3)'
+    subproduct: [sensor_on_satellite]
     entry:
       - satellite-sea-surface-temperature
   Sea and Sea Ice Surface Temperature (DMI):
@@ -436,6 +500,9 @@ PRODUCT:
     Thematic_hub: 'Ocean'
     ECV: 'SST'
     Product: 'SST (GMPE)'
+    version_manifest:
+      source: url
+      pattern: 'GMPE-(v[0-9.]+)_'
     entry:
       - satellite-sea-surface-temperature-ensemble-product
   Sea Level (Global): 

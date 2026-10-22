@@ -96,6 +96,7 @@ if [[ -n "$MAILTO" ]] && [[ -r "$REPORT" ]] && command -v mail >/dev/null 2>&1; 
         echo "Change log: $SITE/coverage_changelog.html"
         echo "  as CSV:   $SITE/coverage_changelog.csv"
         echo "Current coverage: $SITE/coverage_state.csv"
+        echo "  per version:    $SITE/coverage_state_versions.csv"
         echo
         echo "Log: $LOGFILE"
     } | mail -s "ECV time coverage, $(date +%Y-%m-%d)" "$MAILTO"

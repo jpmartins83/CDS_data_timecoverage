@@ -7,3 +7,31 @@ run_date,change,Product,ECV,Thematic Hub,DateBeg_old,DateEnd_old,DateBeg_new,Dat
 20260916,added,Snow Cover Extent,Snow,Cryosphere,,,1982-01-01,2025-12-31
 20260916,added,Snow Water Equivalent,Snow,Cryosphere,,,1979-01-01,2025-12-31
 20260916,extended,SST (CCI v3),SST,Ocean,1979-07-13,2026-08-30,1979-07-13,2026-09-01
+20260917,extended,Sea Ice Concentration,Sea Ice,Ocean,1978-10-01,2026-08-31,1978-10-01,2026-09-01
+20260917,extended,Sea Ice Edge and Type,Sea Ice,Ocean,1978-10-25,2026-08-31,1978-10-25,2026-09-01
+20260924,extended,Ice Sheet Surface Elevation Change (Antarctica),Ice Sheets,Cryosphere,1994-11-01,2023-08-02,1994-07-02,2023-10-01
+20260924,extended,Ice Sheet Surface Elevation Change (Greenland),Ice Sheets,Cryosphere,1992-01-01,2025-10-01,1992-01-01,2026-04-02
+20260924,extended,Surface Albedo,Albedo,Land Biosphere,1981-09-20,2024-12-31,1981-09-20,2025-12-31
+20260924,extended,SST (CCI v3),SST,Ocean,1979-07-13,2026-09-01,1979-07-13,2026-09-08
+20260924,extended,Sea Ice Concentration,Sea Ice,Ocean,1978-10-01,2026-09-01,1978-10-01,2026-09-07
+20260924,extended,Sea Ice Edge and Type,Sea Ice,Ocean,1978-10-25,2026-09-01,1978-10-25,2026-09-07
+20260924,extended,Sea Ice Concentration,Sea Ice,Ocean,1978-10-01,2026-09-07,1978-10-01,2026-09-08
+20260924,extended,Sea Ice Edge and Type,Sea Ice,Ocean,1978-10-25,2026-09-07,1978-10-25,2026-09-08
+20261008,extended,Precipitation (GIRAFE),Precipitation,Atmospheric Physics,2002-01-01,2024-12-31,2002-01-01,2026-08-31
+20261008,extended,Precipitation (GPCP),Precipitation,Atmospheric Physics,1979-01-01,2025-06-30,1979-01-01,2025-12-31
+20261008,extended,Terrestrial Water Storage,Terrestrial Water Storage,Land Hydrology,2002-04-01,2025-09-30,2002-04-01,2026-03-31
+20261008,extended,SST (CCI v3),SST,Ocean,1979-07-13,2026-09-08,1979-07-13,2026-09-19
+20261008,extended,Sea Ice Concentration,Sea Ice,Ocean,1978-10-01,2026-09-08,1978-10-01,2026-09-30
+20261008,extended,Sea Ice Edge and Type,Sea Ice,Ocean,1978-10-25,2026-09-08,1978-10-25,2026-09-21
+20261008,extended,Sea Ice Edge and Type,Sea Ice,Ocean,1978-10-25,2026-09-21,1978-10-25,2026-09-22
+20261015,extended,SST (CCI v3),SST,Ocean,1979-07-13,2026-09-19,1979-07-13,2026-09-23
+20261015,extended,Sea and Sea Ice Surface Temperature,SST,Ocean,1982-01-01,2026-08-11,1982-01-01,2026-09-12
+20261015,extended,Sea Ice Edge and Type,Sea Ice,Ocean,1978-10-25,2026-09-22,1978-10-25,2026-09-28
+20261015,extended,Sea Ice Surface Temperature,Sea Ice,Ocean,1982-01-01,2026-07-31,1982-01-01,2026-08-31
+20261015,extended,Sea Ice Edge and Type,Sea Ice,Ocean,1978-10-25,2026-09-28,1978-10-25,2026-09-29
+20261022,extended,Clouds - CMSAF CLARA-A3,Clouds,Atmospheric Physics,1979-01-01,2025-06-30,1979-01-01,2026-06-30
+20261022,extended,Surface Rad Budget - CMSAF CLARA-A3,Surface Radiation Budget,Atmospheric Physics,1979-01-01,2025-06-30,1979-01-01,2026-06-30
+20261022,shortened,Upper Tropospheric Humidity,Upper-air Water Vapour,Atmospheric Physics,1994-07-05,2021-02-28,1994-07-06,2021-02-28
+20261022,extended,SST (CCI v3),SST,Ocean,1979-07-13,2026-09-23,1979-07-13,2026-10-06
+20261022,extended,Sea Ice Concentration,Sea Ice,Ocean,1978-10-01,2026-09-30,1978-10-01,2026-10-06
+20261022,extended,Sea Ice Edge and Type,Sea Ice,Ocean,1978-10-25,2026-09-29,1978-10-25,2026-10-06

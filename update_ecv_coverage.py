@@ -25,6 +25,7 @@ week, so a Confluence page can link to them once:
                                            is downloaded rather than displayed
   coverage_changelog.csv                   the same data, for download
   coverage_state.csv                       the current coverage, for download
+  coverage_state_versions.csv              the same, per sub-product and version
 
 Change tracking
 ---------------
@@ -34,9 +35,14 @@ hand.  Instead this script keeps two small CSV files in the output directory:
   coverage_state.csv      the coverage as of the last successful run; it is
                           the baseline for the next diff and is rewritten at
                           the end of every run.
+  coverage_state_versions.csv
+                          the same per (Product, Subproduct, Version); this
+                          is what the diff is actually done on, so that each
+                          change names the individual product (sensor,
+                          algorithm, ...) and version it concerns.
   coverage_changelog.csv  append-only history, one row per change, carrying
-                          the run date, the kind of change and the old/new
-                          dates.  The whole history of the products therefore
+                          the run date, the kind of change, the sub-product,
+                          the version and the old/new dates.  The whole history of the products therefore
                           lives in a single file that can be opened, filtered
                           or plotted directly.
 
@@ -73,8 +79,10 @@ os.environ.setdefault("TMPDIR", f"/home/{_USER}/tmp")
 os.makedirs(os.environ["TMPDIR"], exist_ok=True)
 
 import argparse
+import itertools
 import json
 import logging
+import re
 import shutil
 import subprocess
 import sys
@@ -194,6 +202,187 @@ def generate_yaml(entry: str) -> dict:
         return yaml.safe_load(f)
 
 
+# ---------------------------------------------------------------------------
+# product versions and sub-products
+# ---------------------------------------------------------------------------
+# Every product is tracked per (Subproduct, Version).  The version comes, in
+# order of preference, from the product's config:
+#
+#   version: 'A3'                 hardcoded
+#   version:                      looked up from a constraint key
+#     key: sensor_on_satellite
+#     values: {atsr2_on_ers2: 'v3.0', ...}
+#   version_manifest:             read off the files listed in the manifests
+#     source: manifest            of generate.yaml (default); "url" to match
+#                                 the manifest URLs themselves, or the name of
+#                                 a file in gecko-config (e.g. list-study.txt)
+#     select: hoaps               only the manifests whose URL contains this
+#     pattern: '/(v[0-9.]+)/'     regex, group 1 is the version
+#     by: climate_data_record_type
+#                                 optional: a record only gets the versions of
+#                                 the manifests whose URL contains its value
+#
+# or else from the "version"/"product_version" key of the constraint records.
+# The datasets whose dates are read from manifests or data files get their
+# version from the file names (see the extract_dates_* functions).
+#
+#   subproduct: [sensor_on_satellite, algorithm]
+#
+# names the constraint keys that tell the individual products of an entry
+# apart (sensor, algorithm, ...).  They only split the change tracking; the
+# figure still shows one line per product.
+
+# constraint keys that hold the product version, in order of preference
+VERSION_KEYS = ("version", "product_version")
+UNKNOWN_VERSION = "unknown"
+
+_warned: set = set()
+
+
+def _warn_once(msg: str, *args) -> None:
+    if (msg, args) not in _warned:
+        _warned.add((msg, args))
+        LOG.warning(msg, *args)
+
+
+def _redact(url: str) -> str:
+    """Drop the user:password@ part of a URL, for logging."""
+    return re.sub(r"//[^/@]+@", "//", url)
+
+
+@lru_cache(maxsize=None)
+def read_url(url: str) -> tuple[str, ...]:
+    """Non-empty lines of a text file on the web; () if it cannot be fetched."""
+    res = subprocess.run(["wget", "--quiet", "-O", "-", url],
+                         capture_output=True, text=True)
+    if res.returncode != 0:
+        LOG.warning("could not fetch %s (wget status %d)",
+                    _redact(url), res.returncode)
+        return ()
+    return tuple(line.strip() for line in res.stdout.splitlines() if line.strip())
+
+
+def dotted(version: str) -> str:
+    """v1_1 -> v1.1: CDS form values use "_" where the versions use "."."""
+    return re.sub(r"(?<=[0-9])_(?=[0-9])", ".", version)
+
+
+def file_version(name: str, pattern: str) -> str:
+    """The version captured by group 1 of `pattern` in a file name or URL."""
+    m = re.search(pattern, name)
+    if m is None:
+        _warn_once("no version matching %r in %s", pattern, _redact(name))
+        return UNKNOWN_VERSION
+    return m.group(1)
+
+
+@lru_cache(maxsize=None)
+def manifest_versions(entry: str, source: str, select: str,
+                      pattern: str) -> dict[str, frozenset]:
+    """Versions of the files listed in the manifests of `entry`, per manifest."""
+    if source in ("manifest", "url"):
+        urls = [u for u in generate_yaml(entry)["manifest"] if select in u]
+        if source == "url":
+            return {u: frozenset([file_version(u, pattern)]) for u in urls}
+        return {u: frozenset(file_version(line, pattern) for line in read_url(u))
+                for u in urls}
+    fname = f"{CONF['cads_forms_yml_dir']}/{entry}/gecko-config/{source}"
+    with open(fname) as f:
+        lines = [line.strip() for line in f if line.strip()]
+    return {source: frozenset(file_version(line, pattern) for line in lines)}
+
+
+def row_versions(row, cfg=None) -> list[str]:
+    """The versions a constraint record applies to."""
+    cfg = cfg or {}
+    row = row.dropna()
+
+    fixed = cfg.get("version")
+    if isinstance(fixed, str):
+        return [fixed]
+    if isinstance(fixed, dict):
+        versions = []
+        for value in row[fixed["key"]]:
+            if value not in fixed["values"]:
+                _warn_once("%s: no version configured for %s=%s",
+                           cfg.get("Product"), fixed["key"], value)
+            versions.append(fixed["values"].get(value, UNKNOWN_VERSION))
+        return versions
+
+    vm = cfg.get("version_manifest")
+    if vm:
+        found = manifest_versions(cfg["entry"][0].rstrip("/"),
+                                  vm.get("source", "manifest"),
+                                  vm.get("select", ""), vm["pattern"])
+        by = vm.get("by")
+        versions = set()
+        for url, vs in found.items():
+            if by is None or any(value in url for value in row[by]):
+                versions |= vs
+        return sorted(versions) or [UNKNOWN_VERSION]
+
+    for key in VERSION_KEYS:
+        if key in row.keys():
+            return [str(v) for v in row[key]]
+    _warn_once("%s: no version in the constraints nor in the config",
+               cfg.get("Product"))
+    return [UNKNOWN_VERSION]
+
+
+def row_labels(row, cfg=None) -> list[tuple[str, str]]:
+    """The (Subproduct, Version) pairs a constraint record applies to.
+
+    The sub-product is named after the values of the config's `subproduct`
+    keys (e.g. "slstr_on_sentinel_3a / swansea").  A record may list several
+    values of those keys; the versions are worked out for each combination on
+    its own, so that a version looked up from one of the keys stays paired
+    with its own sensor.
+    """
+    row = row.dropna()
+    keys = [k for k in (cfg or {}).get("subproduct", []) if k in row.keys()]
+    if not keys:
+        return [("", v) for v in row_versions(row, cfg)]
+
+    labels = []
+    for combo in itertools.product(*(row[k] for k in keys)):
+        single = row.copy()
+        for key, value in zip(keys, combo):
+            single[key] = [value]
+        labels += [(" / ".join(combo), v) for v in row_versions(single, cfg)]
+    return labels
+
+
+def coverage_per_version(df: pd.DataFrame, cfg=None,
+                         fmin=None, fmax=None) -> pd.DataFrame:
+    """Earliest/latest date of each (Subproduct, Version) of the records.
+
+    A record lists the versions and sub-products it applies to, so its dates
+    count towards each of them.
+    """
+    dated = pd.DataFrame({
+        "label": df.apply(row_labels, axis=1, args=(cfg,)),
+        "DateBeg": df.apply(fmin or compute_datemin, axis=1),
+        "DateEnd": df.apply(fmax or compute_datemax, axis=1),
+    }).explode("label")
+    dated["Subproduct"] = dated["label"].str[0]
+    dated["Version"] = dated["label"].str[1].map(dotted)
+    return dated.groupby(["Subproduct", "Version"]).agg(
+        DateBeg=("DateBeg", "min"), DateEnd=("DateEnd", "max"))
+
+
+def per_file_coverage(files: list[tuple[str, pd.Timestamp, pd.Timestamp]]) -> pd.DataFrame:
+    """Coverage per version from (version, first date, last date) of data files."""
+    dated = pd.DataFrame(files, columns=["Version", "DateBeg", "DateEnd"])
+    dated["Version"] = dated["Version"].map(dotted)
+    return dated.assign(Subproduct="").groupby(["Subproduct", "Version"]).agg(
+        DateBeg=("DateBeg", "min"), DateEnd=("DateEnd", "max"))
+
+
+def span(versions: pd.DataFrame):
+    """Overall (earliest, latest) date over all versions."""
+    return versions["DateBeg"].min(), versions["DateEnd"].max()
+
+
 @lru_cache(maxsize=None)
 def extract_dates_from_TSI(datasets_dir: str, entry: str):
     """Total solar irradiance: coverage comes from the ICDR data file itself."""
@@ -219,7 +408,10 @@ def extract_dates_from_TSI(datasets_dir: str, entry: str):
 
     LOG.info("reading TSI info from %s", fname_tsi_data)
     c = pd.read_csv(fname_tsi_data, skiprows=130, sep=r"\s+", header=None)
-    return pd.Timestamp(str(c[3].iloc[0])), pd.Timestamp(str(c[3].iloc[-1]))
+    # C3S_RMIB_daily_TSI_composite_ICDR_v3.10.txt
+    return per_file_coverage([(file_version(tsi_url, r"_(v[0-9.]+)\.txt$"),
+                               pd.Timestamp(str(c[3].iloc[0])),
+                               pd.Timestamp(str(c[3].iloc[-1])))])
 
 
 @lru_cache(maxsize=None)
@@ -231,7 +423,7 @@ def extract_dates_icesheets(datasets_dir: str, entry: str, region: str):
     for url in generate["manifest"]:
         download(url, datasets_dir)
 
-    datebegs, dateends = [], []
+    files = []
     for fname_manif in glob(f"{datasets_dir}/*manifest*{region}*txt"):
         with open(fname_manif) as f:
             # ENVEO manifests sometimes contain blank lines
@@ -248,9 +440,13 @@ def extract_dates_icesheets(datasets_dir: str, entry: str, region: str):
                          password=manifest_password("enveo"))
 
             nc = xr.open_dataset(fname_path)
-            datebegs.append(pd.Timestamp(nc["time"].values[0]))
-            dateends.append(pd.Timestamp(nc["time"].values[-1]))
-    return min(datebegs), max(dateends)
+            # C3S_GrIS_RA_SEC_25km_Vers6_..., version "6_0" in the CDS form
+            version = file_version(url, r"_[Vv]ers([0-9]+)_")
+            if version != UNKNOWN_VERSION:
+                version += "_0"
+            files.append((version, pd.Timestamp(nc["time"].values[0]),
+                          pd.Timestamp(nc["time"].values[-1])))
+    return per_file_coverage(files)
 
 
 @lru_cache(maxsize=None)
@@ -272,16 +468,35 @@ def extract_dates_massbalance(datasets_dir: str):
         download(url, datasets_dir)
 
     nc = xr.open_dataset(fname_gmb)
-    return pd.Timestamp(nc["time"].values[0]), pd.Timestamp(nc["time"].values[-1])
+    # C3S_GMB_GRACE_vers5.nc
+    return per_file_coverage([(file_version(url, r"_vers([0-9]+)\.nc$"),
+                               pd.Timestamp(nc["time"].values[0]),
+                               pd.Timestamp(nc["time"].values[-1]))])
 
 
-def extract_dates_derived_glaciers(jfile: str):
+def extract_dates_derived_glaciers(jfile: str, cfg=None) -> pd.DataFrame:
     """Glacier mass change: hydrological years, 1 Apr to 30 Sep."""
     with open(jfile) as f:
-        gen = yaml.safe_load(f)[0]
-    ymin = int(gen["hydrological_year"][0][0:4])
-    ymax = int(gen["hydrological_year"][-1][0:4]) + 1
-    return pd.Timestamp(f"{ymin}-4-1"), pd.Timestamp(f"{ymax}-9-30")
+        df = pd.DataFrame(json.load(f))
+
+    def first(row):
+        return pd.Timestamp(f"{int(min(row['hydrological_year'])[0:4])}-4-1")
+
+    def last(row):
+        return pd.Timestamp(f"{int(max(row['hydrological_year'])[0:4]) + 1}-9-30")
+
+    return coverage_per_version(df, cfg, first, last)
+
+
+def extract_dates_rgi(jfile: str, cfg=None) -> pd.DataFrame:
+    """Randolph Glacier Inventory: every version is an inventory of ~2000.
+
+    http://www.glims.org/rgi_user_guide/06_dataset_summary.html
+    """
+    with open(jfile) as f:
+        df = pd.DataFrame(json.load(f))
+    return coverage_per_version(df, cfg, lambda row: pd.Timestamp("1990-01-01"),
+                                lambda row: pd.Timestamp("2010-12-31"))
 
 
 def parse_manifest_date(token: str, end_of_month: bool = False) -> pd.Timestamp:
@@ -291,6 +506,17 @@ def parse_manifest_date(token: str, end_of_month: bool = False) -> pd.Timestamp:
     ts = pd.to_datetime(token, format="%Y%m")
     # monthly data: cover the whole month
     return ts + pd.offsets.MonthEnd(0) if end_of_month else ts
+
+
+# version in the file names listed in the manifests, as group 1
+MANIFEST_NAME_VERSION = {
+    # .../C3S_AIS_IV_200m_S1_20210401_20220331_v1_5.nc
+    "satellite-greenland-ice-sheet-velocity": r"_v([0-9]+_[0-9]+)\.nc$",
+    # .../C3S_TWSA_GLOBAL_MONTHLY_200204_202509_v1.0.nc
+    "satellite-terrestrial-water-storage": r"_(v[0-9]+\.[0-9]+)\.nc$",
+    # .../water_level/ICDR/V5.0/C3S_LWL_..._19950605_20241225_R20250228.nc
+    "satellite-lake-water-level": r"/V([0-9]+\.[0-9]+)/",
+}
 
 
 @lru_cache(maxsize=None)
@@ -322,10 +548,13 @@ def extract_dates_from_manifest_name(datasets_dir: str, entry: str, region=None)
     with open(fname_manif) as f:
         flist = [line.strip() for line in f.readlines() if line.strip()]
 
-    tokens = [line.split("/")[-1].split("_") for line in flist]
-    datebeg = min(parse_manifest_date(t[ibeg]) for t in tokens)
-    dateend = max(parse_manifest_date(t[iend], end_of_month=True) for t in tokens)
-    return pd.Timestamp(datebeg), pd.Timestamp(dateend)
+    files = []
+    for line in flist:
+        t = line.split("/")[-1].split("_")
+        files.append((file_version(line, MANIFEST_NAME_VERSION[entry]),
+                      parse_manifest_date(t[ibeg]),
+                      parse_manifest_date(t[iend], end_of_month=True)))
+    return per_file_coverage(files)
 
 
 # ---------------------------------------------------------------------------
@@ -346,12 +575,12 @@ def datemin2(row):
     return pd.Timestamp(f"{ymin}-{mmin}-1")
 
 
-def extract_dates_wv(jfilepath: str):
+def extract_dates_wv(jfilepath: str, cfg=None) -> pd.DataFrame:
     """Total column water vapour over ocean: the aggregation labels are shifted
     (monthly means yearly, 6-hourly means monthly) so year/month are used raw."""
     with open(jfilepath) as f:
         df = pd.DataFrame(json.load(f))
-    return (df.apply(datemin2, axis=1).min(), df.apply(datemax2, axis=1).max())
+    return coverage_per_version(df, cfg, datemin2, datemax2)
 
 
 def check_time_agg(row) -> str:
@@ -441,22 +670,21 @@ def _drop_undatable_rows(df: pd.DataFrame, ecv: str) -> pd.DataFrame:
     return df
 
 
-def calc_dateminmax_from_cds_form(jfilepath: str, ecv: str):
+def calc_dateminmax_from_cds_form(jfilepath: str, ecv: str, cfg=None) -> pd.DataFrame:
     with open(jfilepath) as f:
         df = pd.DataFrame(json.load(f))
     df = _drop_undatable_rows(df, ecv)
-    return (df.apply(compute_datemin, axis=1).min(),
-            df.apply(compute_datemax, axis=1).max())
+    return coverage_per_version(df, cfg)
 
 
-def extract_dates_dwd_products(jfilepath: str, product_family: str):
+def extract_dates_dwd_products(jfilepath: str, product_family: str,
+                               cfg=None) -> pd.DataFrame:
     """Clouds / ERB / SRB: one CDS entry holds several product families."""
     with open(jfilepath) as f:
         df = pd.DataFrame(json.load(f))
     families = df["product_family"].apply(lambda v: v[0])
     df2 = df[families == product_family].copy()
-    return (df2.apply(compute_datemin, axis=1).min(),
-            df2.apply(compute_datemax, axis=1).max())
+    return coverage_per_version(df2, cfg)
 
 
 # ---------------------------------------------------------------------------
@@ -470,35 +698,34 @@ def coverage_by_ecv() -> pd.DataFrame:
         datemin_list, datemax_list = [], []
 
         if ecv == "Earth Radiation Budget":
-            tsi_min, tsi_max = extract_dates_from_TSI(DATASETS_DIR, entries[0])
+            tsi_min, tsi_max = span(extract_dates_from_TSI(DATASETS_DIR, entries[0]))
             datemin_list.append(tsi_min)
             datemax_list.append(tsi_max)
 
         for entry in entries:
             jfilepath = f"{CDS_FORM_DIR}{entry}/constraints.json"
             if entry == "satellite-ice-sheet-elevation-change":
-                pairs = [extract_dates_icesheets(DATASETS_DIR, entry, "AIS"),
-                         extract_dates_icesheets(DATASETS_DIR, entry, "GrIS")]
+                frames = [extract_dates_icesheets(DATASETS_DIR, entry, "AIS"),
+                          extract_dates_icesheets(DATASETS_DIR, entry, "GrIS")]
             elif entry == "satellite-ice-sheet-mass-balance":
-                pairs = [extract_dates_massbalance(DATASETS_DIR)]
+                frames = [extract_dates_massbalance(DATASETS_DIR)]
             elif entry == "derived-gridded-glacier-mass-change":
-                pairs = [extract_dates_derived_glaciers(jfilepath)]
+                frames = [extract_dates_derived_glaciers(jfilepath)]
             elif entry == "satellite-greenland-ice-sheet-velocity":
-                pairs = [extract_dates_from_manifest_name(DATASETS_DIR, entry, "AIS"),
-                         extract_dates_from_manifest_name(DATASETS_DIR, entry, "GrIS")]
+                frames = [extract_dates_from_manifest_name(DATASETS_DIR, entry, "AIS"),
+                          extract_dates_from_manifest_name(DATASETS_DIR, entry, "GrIS")]
             elif entry in ("satellite-terrestrial-water-storage",
                            "satellite-lake-water-level"):
-                pairs = [extract_dates_from_manifest_name(DATASETS_DIR, entry)]
+                frames = [extract_dates_from_manifest_name(DATASETS_DIR, entry)]
             elif entry == "insitu-glaciers-extent":
-                # http://www.glims.org/rgi_user_guide/06_dataset_summary.html
-                pairs = [(pd.Timestamp("1990-01-01"), pd.Timestamp("2010-12-31"))]
+                frames = [extract_dates_rgi(jfilepath)]
             elif entry == "satellite-total-column-water-vapour-ocean":
-                pairs = [extract_dates_wv(jfilepath)]
+                frames = [extract_dates_wv(jfilepath)]
             else:
-                pairs = [calc_dateminmax_from_cds_form(jfilepath, ecv)]
+                frames = [calc_dateminmax_from_cds_form(jfilepath, ecv)]
 
-            datemin_list += [p[0] for p in pairs]
-            datemax_list += [p[1] for p in pairs]
+            datemin_list += [span(f)[0] for f in frames]
+            datemax_list += [span(f)[1] for f in frames]
 
         ecv_dic[k] = {
             "ECV": ecv,
@@ -511,9 +738,15 @@ def coverage_by_ecv() -> pd.DataFrame:
     return _format_dates(df)
 
 
-def coverage_by_product() -> pd.DataFrame:
-    """Earliest/latest date of every individual product."""
+def coverage_by_product() -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Earliest/latest date of every individual product.
+
+    Returns the per-product table, which is what the figure shows, and the
+    same broken down into one row per (Product, Subproduct, Version), which is
+    what the change tracking compares (see "product versions" above).
+    """
     prod_dic = {}
+    version_frames = []
     for k_prod, prod in enumerate(CONF["PRODUCT"]):
         cfg = CONF["PRODUCT"][prod]
         ecv = cfg["ECV"]
@@ -521,37 +754,37 @@ def coverage_by_product() -> pd.DataFrame:
         jfilepath = f"{CDS_FORM_DIR}{entry}/constraints.json"
 
         if prod == "ERB_RMIB_TSI":
-            datemin, datemax = extract_dates_from_TSI(DATASETS_DIR, entry)
+            versions = extract_dates_from_TSI(DATASETS_DIR, entry)
         elif prod in (
             "CLOUDS_CLARA-A2", "CLOUDS_CLARA-A3", "CLOUDS_CCI_C3S",
             "ERB_NASA_CERES", "ERB_NOAA_HIRS", "ERB_CCI_C3S", "ERB_CLARA-A3",
             "SRB_CLARA-A2", "SRB_CLARA-A3", "SRB_CCI_C3S",
         ):
-            datemin, datemax = extract_dates_dwd_products(
-                jfilepath, product_family=cfg["product_family"])
+            versions = extract_dates_dwd_products(
+                jfilepath, product_family=cfg["product_family"], cfg=cfg)
         elif prod == "Ice Sheet Gravimetric Mass Balance":
-            datemin, datemax = extract_dates_massbalance(DATASETS_DIR)
+            versions = extract_dates_massbalance(DATASETS_DIR)
         elif prod == "Ice Sheet Surface Elevation Change (Antarctica)":
-            datemin, datemax = extract_dates_icesheets(DATASETS_DIR, entry, "AIS")
+            versions = extract_dates_icesheets(DATASETS_DIR, entry, "AIS")
         elif prod == "Ice Sheet Surface Elevation Change (Greenland)":
-            datemin, datemax = extract_dates_icesheets(DATASETS_DIR, entry, "GrIS")
+            versions = extract_dates_icesheets(DATASETS_DIR, entry, "GrIS")
         elif prod == "Ice Sheet Velocity (Antarctica)":
-            datemin, datemax = extract_dates_from_manifest_name(DATASETS_DIR, entry, "AIS")
+            versions = extract_dates_from_manifest_name(DATASETS_DIR, entry, "AIS")
         elif prod == "Ice Sheet Velocity (Greenland)":
-            datemin, datemax = extract_dates_from_manifest_name(DATASETS_DIR, entry, "GrIS")
+            versions = extract_dates_from_manifest_name(DATASETS_DIR, entry, "GrIS")
         elif entry in ("satellite-terrestrial-water-storage",
                        "satellite-lake-water-level"):
-            datemin, datemax = extract_dates_from_manifest_name(DATASETS_DIR, entry)
+            versions = extract_dates_from_manifest_name(DATASETS_DIR, entry)
         elif prod == "Glaciers elevation and mass change data":
-            datemin, datemax = extract_dates_derived_glaciers(jfilepath)
+            versions = extract_dates_derived_glaciers(jfilepath, cfg)
         elif entry == "insitu-glaciers-extent":
-            datemin = pd.Timestamp("1990-01-01")
-            datemax = pd.Timestamp("2010-12-31")
+            versions = extract_dates_rgi(jfilepath, cfg)
         elif entry == "satellite-total-column-water-vapour-ocean":
-            datemin, datemax = extract_dates_wv(jfilepath)
+            versions = extract_dates_wv(jfilepath, cfg)
         else:
-            datemin, datemax = calc_dateminmax_from_cds_form(jfilepath, ecv)
+            versions = calc_dateminmax_from_cds_form(jfilepath, ecv, cfg)
 
+        datemin, datemax = span(versions)
         prod_dic[k_prod] = {
             "Product": cfg["Product"],
             "ECV": ecv,
@@ -560,10 +793,14 @@ def coverage_by_product() -> pd.DataFrame:
             "Thematic Hub": cfg["Thematic_hub"],
         }
         LOG.info("%s: %s to %s", cfg["Product"], datemin.date(), datemax.date())
+        version_frames.append(versions.reset_index().assign(
+            Product=cfg["Product"], ECV=ecv, **{"Thematic Hub": cfg["Thematic_hub"]}))
 
     df = pd.DataFrame.from_dict(prod_dic, orient="index").sort_values(
         ["Thematic Hub", "ECV", "Product"])
-    return _format_dates(df)
+    vdf = pd.concat(version_frames, ignore_index=True).sort_values(
+        ["Thematic Hub", "ECV", "Product", "Subproduct", "Version"])
+    return _format_dates(df), _format_dates(vdf)[VERSION_STATE_COLS]
 
 
 def _format_dates(df: pd.DataFrame) -> pd.DataFrame:
@@ -668,6 +905,14 @@ def figure_by_product(prod_pd: pd.DataFrame, outdir: Path, today: str) -> Path:
             font=dict(size=16, color=HUB_COLORS[hub]),
         )
 
+    # below the x tick labels, in the bottom margin
+    updated = pd.to_datetime(today, format="%Y%m%d").strftime("%d %b %Y")
+    fig.add_annotation(
+        x=1, y=0, xref="paper", yref="paper", xanchor="right", yanchor="top",
+        yshift=-32, text=f"Last updated {updated}", showarrow=False,
+        font=dict(size=10, color="rgba(0,0,0,0.5)"),
+    )
+
     fig.update_xaxes(showgrid=True, gridcolor="rgba(0,0,0,0.08)",
                      griddash="dash", zeroline=False)
     fig.update_layout(
@@ -688,13 +933,18 @@ def figure_by_product(prod_pd: pd.DataFrame, outdir: Path, today: str) -> Path:
 # change tracking
 # ---------------------------------------------------------------------------
 STATE_COLS = ["Product", "ECV", "Thematic Hub", "DateBeg", "DateEnd"]
-CHANGE_COLS = ["run_date", "change", "Product", "ECV", "Thematic Hub",
-               "DateBeg_old", "DateEnd_old", "DateBeg_new", "DateEnd_new"]
+VERSION_KEY_COLS = ["Product", "Subproduct", "Version"]
+VERSION_STATE_COLS = VERSION_KEY_COLS + ["ECV", "Thematic Hub", "DateBeg", "DateEnd"]
+CHANGE_COLS = ["run_date", "change", "Product", "Subproduct", "Version", "ECV",
+               "Thematic Hub", "DateBeg_old", "DateEnd_old", "DateBeg_new",
+               "DateEnd_new"]
 
 
-def _change_row(today, change, product, ref, old, new) -> dict:
+def _change_row(today, change, key, ref, old, new) -> dict:
+    product, subproduct, version = key
     return {
         "run_date": today, "change": change, "Product": product,
+        "Subproduct": subproduct, "Version": version,
         "ECV": ref["ECV"], "Thematic Hub": ref["Thematic Hub"],
         "DateBeg_old": old["DateBeg"] if old is not None else "",
         "DateEnd_old": old["DateEnd"] if old is not None else "",
@@ -703,42 +953,28 @@ def _change_row(today, change, product, ref, old, new) -> dict:
     }
 
 
-def track_changes(prod_pd: pd.DataFrame, outdir: Path, today: str) -> pd.DataFrame:
-    """Diff the new coverage against the previous run and log the differences.
+def _read_csv(path: Path) -> pd.DataFrame:
+    # str throughout, so that versions such as "3_0" or "001" survive as written
+    return pd.read_csv(path, dtype=str, keep_default_na=False)
 
-    Returns the changes of this run (empty on the very first run, which only
-    establishes the baseline).
-    """
-    state_file = outdir / "coverage_state.csv"
-    changelog_file = outdir / "coverage_changelog.csv"
-    report_file = outdir / "coverage_changes_latest.md"
 
-    new = prod_pd[STATE_COLS].copy().set_index("Product")
-
-    if not state_file.exists():
-        LOG.info("no %s yet: this run only establishes the baseline", state_file)
-        prod_pd[STATE_COLS].to_csv(state_file, index=False)
-        report_file.write_text(
-            f"# ECV coverage changes, {today}\n\nBaseline established, "
-            f"{len(new)} products recorded. No comparison possible yet.\n")
-        return pd.DataFrame(columns=CHANGE_COLS)
-
-    old = pd.read_csv(state_file).set_index("Product")
+def _diff(new: pd.DataFrame, old: pd.DataFrame, today: str) -> list[dict]:
+    """Change rows between two coverage tables indexed by VERSION_KEY_COLS."""
     rows = []
 
-    for product in new.index.difference(old.index):
-        r = new.loc[product]
-        rows.append(_change_row(today, "added", product, r, None, r))
+    for key in new.index.difference(old.index):
+        r = new.loc[key]
+        rows.append(_change_row(today, "added", key, r, None, r))
 
-    for product in old.index.difference(new.index):
-        r = old.loc[product]
-        rows.append(_change_row(today, "removed", product, r, r, None))
+    for key in old.index.difference(new.index):
+        r = old.loc[key]
+        rows.append(_change_row(today, "removed", key, r, r, None))
 
-    for product in new.index.intersection(old.index):
-        n, o = new.loc[product], old.loc[product]
+    for key in new.index.intersection(old.index):
+        n, o = new.loc[key], old.loc[key]
         if n["DateBeg"] == o["DateBeg"] and n["DateEnd"] == o["DateEnd"]:
             if n["ECV"] != o["ECV"] or n["Thematic Hub"] != o["Thematic Hub"]:
-                rows.append(_change_row(today, "reclassified", product, n, o, n))
+                rows.append(_change_row(today, "reclassified", key, n, o, n))
             continue
         if n["DateBeg"] <= o["DateBeg"] and n["DateEnd"] >= o["DateEnd"]:
             change = "extended"
@@ -746,26 +982,92 @@ def track_changes(prod_pd: pd.DataFrame, outdir: Path, today: str) -> pd.DataFra
             change = "shortened"
         else:
             change = "modified"  # one end moved forward, the other backward
-        rows.append(_change_row(today, change, product, n, o, n))
+        rows.append(_change_row(today, change, key, n, o, n))
+    return rows
 
-    changes = pd.DataFrame(rows, columns=CHANGE_COLS)
+
+def _append_changelog(changes: pd.DataFrame, changelog_file: Path) -> None:
+    """Append to the change log, first adding any column it predates."""
+    if changelog_file.exists():
+        log = _read_csv(changelog_file)
+        if list(log.columns) != CHANGE_COLS:
+            LOG.info("adding the columns %s to %s",
+                     [c for c in CHANGE_COLS if c not in log.columns], changelog_file)
+            log.reindex(columns=CHANGE_COLS, fill_value="").to_csv(
+                changelog_file, index=False)
+    changes.to_csv(changelog_file, mode="a", index=False,
+                   header=not changelog_file.exists())
+
+
+def _grouped_markdown(changes: pd.DataFrame) -> str:
+    """The changes as a table with one entry per product: the product, ECV and
+    hub are only given on the first line of each product's versions."""
+    cols = ["Product", "ECV", "Thematic Hub", "change", "Subproduct", "Version",
+            "DateBeg_old", "DateEnd_old", "DateBeg_new", "DateEnd_new"]
+    table = changes[cols].reset_index(drop=True)
+    repeated = table["Product"].eq(table["Product"].shift())
+    table.loc[repeated, ["Product", "ECV", "Thematic Hub"]] = ""
+    return table.to_markdown(index=False)
+
+
+def track_changes(prod_pd: pd.DataFrame, versions_pd: pd.DataFrame,
+                  outdir: Path, today: str) -> pd.DataFrame:
+    """Diff the new coverage against the previous run and log the differences.
+
+    The diff is done per (Product, Subproduct, Version), so every change names
+    the individual product (sensor, algorithm, ...) and the version whose
+    coverage moved; a new version shows up as "added" even when it does not
+    change the overall coverage of its product.
+
+    Returns the changes of this run (empty on the very first run, which only
+    establishes the baseline).
+    """
+    state_file = outdir / "coverage_state.csv"
+    versions_state_file = outdir / "coverage_state_versions.csv"
+    changelog_file = outdir / "coverage_changelog.csv"
+    report_file = outdir / "coverage_changes_latest.md"
+
+    keys = VERSION_KEY_COLS
+    new = versions_pd[VERSION_STATE_COLS].set_index(keys)
+
+    if versions_state_file.exists():
+        old = _read_csv(versions_state_file).set_index(keys)
+    elif state_file.exists():
+        # first run with version tracking: compare per product this once
+        LOG.info("no %s yet: comparing per product, without versions",
+                 versions_state_file)
+        old = _read_csv(state_file).assign(Subproduct="", Version="").set_index(keys)
+        new = prod_pd[STATE_COLS].assign(Subproduct="", Version="").set_index(keys)
+    else:
+        LOG.info("no %s yet: this run only establishes the baseline", state_file)
+        prod_pd[STATE_COLS].to_csv(state_file, index=False)
+        versions_pd[VERSION_STATE_COLS].to_csv(versions_state_file, index=False)
+        report_file.write_text(
+            f"# ECV coverage changes, {today}\n\nBaseline established, "
+            f"{len(prod_pd)} products recorded. No comparison possible yet.\n")
+        return pd.DataFrame(columns=CHANGE_COLS)
+
+    changes = pd.DataFrame(_diff(new, old, today), columns=CHANGE_COLS)
+    changes = changes.sort_values(["Thematic Hub"] + keys)
 
     if not changes.empty:
-        changes.to_csv(changelog_file, mode="a", index=False,
-                       header=not changelog_file.exists())
+        _append_changelog(changes, changelog_file)
 
     report = [f"# ECV coverage changes, {today}", ""]
     if changes.empty:
-        report.append(f"No change since the previous run ({len(new)} products).")
+        report.append(f"No change since the previous run ({len(prod_pd)} products).")
     else:
-        report.append(f"{len(changes)} change(s) since the previous run.")
+        n_products = changes["Product"].nunique()
+        report.append(f"{len(changes)} change(s) to {n_products} product(s) "
+                      "since the previous run.")
         report.append("")
-        report.append(changes.drop(columns=["run_date"]).to_markdown(index=False))
+        report.append(_grouped_markdown(changes))
     report_file.write_text("\n".join(report) + "\n")
     print("\n".join(report))
 
     # the new coverage becomes the baseline of the next run
     prod_pd[STATE_COLS].to_csv(state_file, index=False)
+    versions_pd[VERSION_STATE_COLS].to_csv(versions_state_file, index=False)
     return changes
 
 
@@ -803,8 +1105,13 @@ HTML_PAGE = """<!DOCTYPE html>
   th {{ position: sticky; top: 0; background: #f6f8fa; font-weight: 600;
        border-bottom: 2px solid #d8dee4; z-index: 1; }}
   tr.newrun td {{ border-top: 2px solid #d8dee4; }}
+  tr.cont td:not([rowspan]) {{ border-bottom: 1px dotted #d8dee4; }}
+  td.group {{ background: #fbfcfd; }}
   td.product {{ white-space: normal; font-weight: 600; }}
   td.hub, td.ecv {{ color: #57606a; }}
+  td.subproduct {{ white-space: normal; }}
+  td.version {{ font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+               font-size: 13px; }}
   td.dates {{ font-variant-numeric: tabular-nums; }}
   .badge {{ display: inline-block; padding: 1px 8px; border-radius: 10px;
            font-size: 12px; font-weight: 600; }}
@@ -819,7 +1126,8 @@ HTML_PAGE = """<!DOCTYPE html>
 Generated {generated} &middot;
 <a href="temporal_coverage_by_Product_latest.png">current figure</a> &middot;
 <a href="coverage_changelog.csv">changelog CSV</a> &middot;
-<a href="coverage_state.csv">current coverage CSV</a></p>
+<a href="coverage_state.csv">current coverage CSV</a> &middot;
+<a href="coverage_state_versions.csv">per version</a></p>
 {body}
 </body>
 </html>
@@ -837,6 +1145,10 @@ def _range(beg: str, end: str) -> str:
         return '<span class="none">&mdash;</span>'
     return (f'{escape(beg) or "?"}<span class="arrow">&rarr;</span>'
             f'{escape(end) or "?"}')
+
+
+def _cell(text: str) -> str:
+    return escape(text) if text else '<span class="none">&mdash;</span>'
 
 
 def write_changelog_html(outdir: Path) -> Path:
@@ -871,43 +1183,58 @@ def write_changelog_html(outdir: Path) -> Path:
         LOG.info("wrote %s", html_file)
         return html_file
 
-    log = pd.read_csv(changelog_file, dtype=str).fillna("")
-    log = log.sort_values(["run_date", "Thematic Hub", "Product"],
-                          ascending=[False, True, True])
+    log = _read_csv(changelog_file).reindex(columns=CHANGE_COLS, fill_value="")
+    log = log.sort_values(["run_date", "Thematic Hub"] + VERSION_KEY_COLS,
+                          ascending=[False, True, True, True, True])
 
     last_run = log["run_date"].max()
     n_last = int((log["run_date"] == last_run).sum())
     last_run_fmt = pd.to_datetime(last_run, format="%Y%m%d").strftime("%d %b %Y")
 
-    summary = (f"{n_last} change(s) in the run of {last_run_fmt}; "
-               f"{len(log)} change(s) recorded in total")
+    n_last_products = log.loc[log["run_date"] == last_run, "Product"].nunique()
+    summary = (f"{n_last} change(s) to {n_last_products} product(s) in the run "
+               f"of {last_run_fmt}; {len(log)} change(s) recorded in total")
     if n_products is not None:
         summary += f", across {n_products} tracked products"
     summary += "."
 
+    # one entry per product and run; the run, product, ECV and hub cells span
+    # the lines of the individual versions that changed
     rows = []
     previous_run = None
-    for _, r in log.iterrows():
-        run = r["run_date"]
-        cls = ' class="newrun"' if previous_run is not None and run != previous_run else ""
+    for (run, _, product), group in log.groupby(
+            ["run_date", "Thematic Hub", "Product"], sort=False):
+        first = group.iloc[0]
+        cls = "newrun" if previous_run is not None and run != previous_run else ""
         previous_run = run
         run_fmt = pd.to_datetime(run, format="%Y%m%d").strftime("%Y-%m-%d")
-        rows.append(
-            f"<tr{cls}>"
-            f'<td class="dates">{escape(run_fmt)}</td>'
-            f"<td>{_badge(r['change'])}</td>"
-            f'<td class="product">{escape(r["Product"])}</td>'
-            f'<td class="ecv">{escape(r["ECV"])}</td>'
-            f'<td class="hub">{escape(r["Thematic Hub"])}</td>'
-            f'<td class="dates">{_range(r["DateBeg_old"], r["DateEnd_old"])}</td>'
-            f'<td class="dates">{_range(r["DateBeg_new"], r["DateEnd_new"])}</td>'
-            "</tr>"
+        span_attr = f' rowspan="{len(group)}"' if len(group) > 1 else ""
+        shared = (
+            f'<td class="dates group"{span_attr}>{escape(run_fmt)}</td>'
+            f'<td class="product group"{span_attr}>{escape(product)}</td>'
+            f'<td class="ecv group"{span_attr}>{escape(first["ECV"])}</td>'
+            f'<td class="hub group"{span_attr}>{escape(first["Thematic Hub"])}</td>'
         )
+        for i, (_, r) in enumerate(group.iterrows()):
+            # "cont": another version of the same product follows
+            row_cls = " ".join(c for c in (cls if i == 0 else "",
+                                           "cont" if i < len(group) - 1 else "") if c)
+            rows.append(
+                (f'<tr class="{row_cls}">' if row_cls else "<tr>")
+                + (shared if i == 0 else "")
+                + f"<td>{_badge(r['change'])}</td>"
+                f'<td class="subproduct">{_cell(r["Subproduct"])}</td>'
+                f'<td class="version">{_cell(r["Version"])}</td>'
+                f'<td class="dates">{_range(r["DateBeg_old"], r["DateEnd_old"])}</td>'
+                f'<td class="dates">{_range(r["DateBeg_new"], r["DateEnd_new"])}</td>'
+                "</tr>"
+            )
 
     body = (
         '<div class="wrap"><table>\n'
-        "<thead><tr><th>Run</th><th>Change</th><th>Product</th><th>ECV</th>"
-        "<th>Thematic hub</th><th>Coverage before</th><th>Coverage after</th>"
+        "<thead><tr><th>Run</th><th>Product</th><th>ECV</th><th>Thematic hub</th>"
+        "<th>Change</th><th>Sub-product</th><th>Version</th>"
+        "<th>Coverage before</th><th>Coverage after</th>"
         "</tr></thead>\n<tbody>\n" + "\n".join(rows) + "\n</tbody></table></div>"
     )
 
@@ -964,6 +1291,7 @@ def site_uploads(png: Path, outdir: Path) -> list[Path]:
         outdir / "coverage_changelog.html",
         outdir / "coverage_changelog.csv",
         outdir / "coverage_state.csv",
+        outdir / "coverage_state_versions.csv",
     ]
 
 
@@ -1022,12 +1350,12 @@ def main(argv=None) -> int:
     #     # ecv_pd.to_excel(outdir / f"ECV_time_coverage_perECV_{today}.xlsx")
     #     figure_by_ecv(order_ecvs(ecv_pd), outdir, today)
 
-    prod_pd = coverage_by_product()
+    prod_pd, versions_pd = coverage_by_product()
     print(prod_pd.to_markdown())
     # prod_pd.to_excel(outdir / f"ECV_time_coverage_perProduct_{today}.xlsx")
     png = figure_by_product(prod_pd, outdir, today)
 
-    track_changes(prod_pd, outdir, today)
+    track_changes(prod_pd, versions_pd, outdir, today)
     write_changelog_html(outdir)
 
     if args.no_upload:

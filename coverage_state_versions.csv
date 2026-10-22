@@ -1,0 +1,546 @@
+Product,Subproduct,Version,ECV,Thematic Hub,DateBeg,DateEnd
+Aerosols,aatsr_on_envisat / adv,v2.30,Aerosols,Atmospheric Composition,2002-05-01,2012-04-30
+Aerosols,aatsr_on_envisat / adv,v3.11,Aerosols,Atmospheric Composition,2002-05-01,2012-04-30
+Aerosols,aatsr_on_envisat / adv,v4.0,Aerosols,Atmospheric Composition,2002-08-01,2012-04-30
+Aerosols,aatsr_on_envisat / adv,v4.1,Aerosols,Atmospheric Composition,2002-05-20,2012-04-30
+Aerosols,aatsr_on_envisat / ens,v2.6,Aerosols,Atmospheric Composition,2002-01-01,2012-04-30
+Aerosols,aatsr_on_envisat / ens,v2.9,Aerosols,Atmospheric Composition,2002-05-01,2012-04-30
+Aerosols,aatsr_on_envisat / ens,v3.0,Aerosols,Atmospheric Composition,2002-05-01,2012-04-30
+Aerosols,aatsr_on_envisat / ens,v3.1,Aerosols,Atmospheric Composition,2002-05-01,2012-04-30
+Aerosols,aatsr_on_envisat / ens,v3.2,Aerosols,Atmospheric Composition,2002-05-01,2012-04-30
+Aerosols,aatsr_on_envisat / orac,v4.01,Aerosols,Atmospheric Composition,2002-05-01,2012-04-30
+Aerosols,aatsr_on_envisat / orac,v4.02,Aerosols,Atmospheric Composition,2002-05-01,2012-04-30
+Aerosols,aatsr_on_envisat / swansea,deprecated (v4.32),Aerosols,Atmospheric Composition,2002-05-01,2012-04-30
+Aerosols,aatsr_on_envisat / swansea,v4.3,Aerosols,Atmospheric Composition,2002-05-01,2012-04-30
+Aerosols,aatsr_on_envisat / swansea,v4.33,Aerosols,Atmospheric Composition,2002-05-01,2012-04-30
+Aerosols,aatsr_on_envisat / swansea,v4.35.1,Aerosols,Atmospheric Composition,2002-05-01,2012-04-30
+Aerosols,atsr2_on_ers2 / adv,v2.30,Aerosols,Atmospheric Composition,1995-06-01,2003-04-30
+Aerosols,atsr2_on_ers2 / adv,v3.11,Aerosols,Atmospheric Composition,1995-06-01,2003-06-22
+Aerosols,atsr2_on_ers2 / adv,v4.0,Aerosols,Atmospheric Composition,1995-06-01,2003-04-30
+Aerosols,atsr2_on_ers2 / adv,v4.1,Aerosols,Atmospheric Composition,1995-06-01,2003-04-30
+Aerosols,atsr2_on_ers2 / ens,v2.6,Aerosols,Atmospheric Composition,1995-08-01,2002-12-31
+Aerosols,atsr2_on_ers2 / ens,v2.9,Aerosols,Atmospheric Composition,1995-06-01,2002-12-31
+Aerosols,atsr2_on_ers2 / ens,v3.0,Aerosols,Atmospheric Composition,1995-06-01,2003-06-30
+Aerosols,atsr2_on_ers2 / ens,v3.1,Aerosols,Atmospheric Composition,1995-06-01,2003-06-30
+Aerosols,atsr2_on_ers2 / ens,v3.2,Aerosols,Atmospheric Composition,1995-06-01,2003-06-30
+Aerosols,atsr2_on_ers2 / orac,v4.01,Aerosols,Atmospheric Composition,1995-06-01,2003-06-30
+Aerosols,atsr2_on_ers2 / orac,v4.02,Aerosols,Atmospheric Composition,1995-06-01,2003-08-31
+Aerosols,atsr2_on_ers2 / swansea,deprecated (v4.32),Aerosols,Atmospheric Composition,1995-06-01,2003-06-30
+Aerosols,atsr2_on_ers2 / swansea,v4.3,Aerosols,Atmospheric Composition,1995-06-01,2003-06-30
+Aerosols,atsr2_on_ers2 / swansea,v4.32_latest,Aerosols,Atmospheric Composition,1995-06-01,2003-06-30
+Aerosols,atsr2_on_ers2 / swansea,v4.33,Aerosols,Atmospheric Composition,1995-06-01,2003-06-30
+Aerosols,atsr2_on_ers2 / swansea,v4.35.1,Aerosols,Atmospheric Composition,1995-06-01,2003-06-30
+Aerosols,gomos_on_envisat / aergom,v3.00,Aerosols,Atmospheric Composition,2002-04-01,2012-04-30
+Aerosols,gomos_on_envisat / aergom,v4.00,Aerosols,Atmospheric Composition,2002-04-01,2012-04-30
+Aerosols,gomos_on_envisat / aergom,v4.01s,Aerosols,Atmospheric Composition,2002-04-01,2012-04-30
+Aerosols,iasi_on_metopa / ens,v1.0,Aerosols,Atmospheric Composition,2018-07-01,2020-06-30
+Aerosols,iasi_on_metopa / ens,v1.1,Aerosols,Atmospheric Composition,2007-10-01,2020-06-30
+Aerosols,iasi_on_metopa / ens,v1.4,Aerosols,Atmospheric Composition,2007-07-01,2020-06-30
+Aerosols,iasi_on_metopa / imars,v5.2,Aerosols,Atmospheric Composition,2007-05-01,2018-03-31
+Aerosols,iasi_on_metopa / imars,v6.0,Aerosols,Atmospheric Composition,2007-05-01,2020-06-30
+Aerosols,iasi_on_metopa / imars,v7.0,Aerosols,Atmospheric Composition,2007-05-01,2020-06-30
+Aerosols,iasi_on_metopa / imars,v7.1,Aerosols,Atmospheric Composition,2007-07-01,2020-06-30
+Aerosols,iasi_on_metopa / lmd,v2.1,Aerosols,Atmospheric Composition,2007-07-01,2016-12-31
+Aerosols,iasi_on_metopa / lmd,v2.2,Aerosols,Atmospheric Composition,2007-01-01,2021-10-31
+Aerosols,iasi_on_metopa / mapir,v3.51,Aerosols,Atmospheric Composition,2007-09-01,2017-07-01
+Aerosols,iasi_on_metopa / mapir,v3.7,Aerosols,Atmospheric Composition,2017-07-01,2017-12-31
+Aerosols,iasi_on_metopa / mapir,v4.0,Aerosols,Atmospheric Composition,2018-01-01,2018-03-31
+Aerosols,iasi_on_metopa / mapir,v4.1,Aerosols,Atmospheric Composition,2007-09-01,2020-10-31
+Aerosols,iasi_on_metopa / mapir,v5.1,Aerosols,Atmospheric Composition,2007-07-10,2021-09-05
+Aerosols,iasi_on_metopa / mapir,v5.11,Aerosols,Atmospheric Composition,2007-07-10,2021-09-05
+Aerosols,iasi_on_metopa / ulb,v8,Aerosols,Atmospheric Composition,2007-10-01,2021-02-09
+Aerosols,iasi_on_metopa / ulb,v9,Aerosols,Atmospheric Composition,2007-10-01,2021-10-31
+Aerosols,iasi_on_metopb / ulb,v9,Aerosols,Atmospheric Composition,2013-03-01,2023-09-30
+Aerosols,iasi_on_metopc / ens,v1.1,Aerosols,Atmospheric Composition,2020-07-01,2021-12-31
+Aerosols,iasi_on_metopc / ens,v1.2,Aerosols,Atmospheric Composition,2022-01-01,2022-12-31
+Aerosols,iasi_on_metopc / ens,v1.3,Aerosols,Atmospheric Composition,2023-01-01,2023-06-30
+Aerosols,iasi_on_metopc / ens,v1.4,Aerosols,Atmospheric Composition,2020-07-01,2024-12-31
+Aerosols,iasi_on_metopc / ens,v1.5,Aerosols,Atmospheric Composition,2025-01-01,2025-06-30
+Aerosols,iasi_on_metopc / ens,v1.6,Aerosols,Atmospheric Composition,2025-07-01,2025-12-31
+Aerosols,iasi_on_metopc / imars,v7.0,Aerosols,Atmospheric Composition,2020-07-01,2023-06-30
+Aerosols,iasi_on_metopc / imars,v7.1,Aerosols,Atmospheric Composition,2020-07-01,2025-12-31
+Aerosols,iasi_on_metopc / lmd,v2.2,Aerosols,Atmospheric Composition,2019-06-01,2025-12-31
+Aerosols,iasi_on_metopc / mapir,v4.1,Aerosols,Atmospheric Composition,2019-09-01,2022-12-31
+Aerosols,iasi_on_metopc / mapir,v5.0,Aerosols,Atmospheric Composition,2023-01-01,2023-06-30
+Aerosols,iasi_on_metopc / mapir,v5.1,Aerosols,Atmospheric Composition,2019-10-24,2024-12-31
+Aerosols,iasi_on_metopc / mapir,v5.11,Aerosols,Atmospheric Composition,2019-02-01,2025-12-31
+Aerosols,iasi_on_metopc / ulb,v8,Aerosols,Atmospheric Composition,2020-01-01,2021-12-31
+Aerosols,iasi_on_metopc / ulb,v9,Aerosols,Atmospheric Composition,2019-09-01,2025-07-31
+Aerosols,iasi_on_metopc / ulb,v9.2,Aerosols,Atmospheric Composition,2025-07-01,2025-12-31
+Aerosols,meris_on_envisat / ens,v1.0,Aerosols,Atmospheric Composition,2002-05-01,2012-04-08
+Aerosols,meris_on_envisat / s4m,v4.8a,Aerosols,Atmospheric Composition,2008-01-01,2008-12-31
+Aerosols,meris_on_envisat / s4m,v7.0a,Aerosols,Atmospheric Composition,2002-05-01,2012-04-30
+Aerosols,meris_on_envisat / xbaer,v2.1,Aerosols,Atmospheric Composition,2008-01-01,2008-12-31
+Aerosols,meris_on_envisat / xbaer,v2.3,Aerosols,Atmospheric Composition,2002-04-01,2012-04-30
+Aerosols,olci_on_sentinel_3a / ens,v1.0,Aerosols,Atmospheric Composition,2018-07-01,2020-06-30
+Aerosols,olci_on_sentinel_3a / ens,v1.1,Aerosols,Atmospheric Composition,2016-11-01,2025-12-31
+Aerosols,olci_on_sentinel_3a / s4o,v1.0,Aerosols,Atmospheric Composition,2016-10-01,2020-06-30
+Aerosols,olci_on_sentinel_3a / s4o,v2.0,Aerosols,Atmospheric Composition,2016-04-01,2025-12-31
+Aerosols,olci_on_sentinel_3a / xbaer,v1.0,Aerosols,Atmospheric Composition,2016-11-01,2025-12-31
+Aerosols,polder_on_parasol / grasp,v0.08,Aerosols,Atmospheric Composition,2005-03-01,2013-10-31
+Aerosols,polder_on_parasol / grasp,v2.01,Aerosols,Atmospheric Composition,2005-03-01,2013-10-31
+Aerosols,polder_on_parasol / grasp,v2.10,Aerosols,Atmospheric Composition,2005-03-01,2013-10-31
+Aerosols,polder_on_parasol / grasp,v2.20,Aerosols,Atmospheric Composition,2005-03-22,2013-10-31
+Aerosols,slstr_on_sentinel_3a / ens,v1.1,Aerosols,Atmospheric Composition,2017-07-01,2018-12-31
+Aerosols,slstr_on_sentinel_3a / ens,v1.2,Aerosols,Atmospheric Composition,2019-01-01,2019-12-31
+Aerosols,slstr_on_sentinel_3a / ens,v2.0,Aerosols,Atmospheric Composition,2020-01-01,2020-06-30
+Aerosols,slstr_on_sentinel_3a / ens,v2.1,Aerosols,Atmospheric Composition,2017-07-01,2020-06-30
+Aerosols,slstr_on_sentinel_3a / ens,v2.2,Aerosols,Atmospheric Composition,2020-07-01,2023-06-30
+Aerosols,slstr_on_sentinel_3a / ens,v2.3,Aerosols,Atmospheric Composition,2017-07-01,2023-06-30
+Aerosols,slstr_on_sentinel_3a / ens,v2.4,Aerosols,Atmospheric Composition,2017-01-01,2025-12-31
+Aerosols,slstr_on_sentinel_3a / orac,v1.00,Aerosols,Atmospheric Composition,2017-01-01,2023-06-30
+Aerosols,slstr_on_sentinel_3a / orac,v5.00,Aerosols,Atmospheric Composition,2017-01-01,2025-12-31
+Aerosols,slstr_on_sentinel_3a / sdv,v1.00,Aerosols,Atmospheric Composition,2017-07-01,2018-03-31
+Aerosols,slstr_on_sentinel_3a / sdv,v1.10,Aerosols,Atmospheric Composition,2017-07-01,2018-12-31
+Aerosols,slstr_on_sentinel_3a / sdv,v2.00,Aerosols,Atmospheric Composition,2018-01-01,2020-06-30
+Aerosols,slstr_on_sentinel_3a / sdv,v2.10,Aerosols,Atmospheric Composition,2017-06-01,2020-06-30
+Aerosols,slstr_on_sentinel_3a / sdv,v2.20,Aerosols,Atmospheric Composition,2017-06-01,2023-06-30
+Aerosols,slstr_on_sentinel_3a / sdv,v2.30,Aerosols,Atmospheric Composition,2017-06-01,2025-12-31
+Aerosols,slstr_on_sentinel_3a / swansea,deprecated (v1.11),Aerosols,Atmospheric Composition,2017-07-01,2019-12-31
+Aerosols,slstr_on_sentinel_3a / swansea,v1.00,Aerosols,Atmospheric Composition,2017-07-01,2018-03-31
+Aerosols,slstr_on_sentinel_3a / swansea,v1.12,Aerosols,Atmospheric Composition,2017-07-01,2023-06-30
+Aerosols,slstr_on_sentinel_3a / swansea,v1.14.1,Aerosols,Atmospheric Composition,2016-05-01,2025-12-31
+Aerosols,slstr_on_sentinel_3b / sdv,v1.10,Aerosols,Atmospheric Composition,2018-11-01,2018-12-31
+Aerosols,slstr_on_sentinel_3b / sdv,v2.00,Aerosols,Atmospheric Composition,2019-01-01,2020-06-28
+Aerosols,slstr_on_sentinel_3b / sdv,v2.10,Aerosols,Atmospheric Composition,2018-11-01,2020-06-30
+Aerosols,slstr_on_sentinel_3b / swansea,v1.12,Aerosols,Atmospheric Composition,2018-11-01,2023-06-30
+CH4,iasi_merged_obs4mips,10.2,Greenhouse Gases,Atmospheric Composition,2007-07-01,2025-06-30
+CH4,iasi_metop_a_nlis,10.2,Greenhouse Gases,Atmospheric Composition,2007-07-01,2021-10-15
+CH4,iasi_metop_a_nlis,8.4,Greenhouse Gases,Atmospheric Composition,2007-07-01,2015-09-30
+CH4,iasi_metop_a_nlis,9.1,Greenhouse Gases,Atmospheric Composition,2007-07-01,2021-08-31
+CH4,iasi_metop_b_nlis,10.2,Greenhouse Gases,Atmospheric Composition,2013-02-01,2022-12-31
+CH4,iasi_metop_b_nlis,8.1,Greenhouse Gases,Atmospheric Composition,2013-02-01,2019-12-31
+CH4,iasi_metop_b_nlis,9.1,Greenhouse Gases,Atmospheric Composition,2013-02-01,2021-12-31
+CH4,iasi_metop_c_nlis,10.2,Greenhouse Gases,Atmospheric Composition,2019-05-01,2022-12-31
+CH4,merged_emma,3.0,Greenhouse Gases,Atmospheric Composition,2003-01-06,2016-12-31
+CH4,merged_emma,3.1,Greenhouse Gases,Atmospheric Composition,2003-01-06,2017-12-31
+CH4,merged_emma,4.1,Greenhouse Gases,Atmospheric Composition,2003-01-06,2018-12-31
+CH4,merged_emma,4.2,Greenhouse Gases,Atmospheric Composition,2003-01-06,2019-12-31
+CH4,merged_emma,4.3,Greenhouse Gases,Atmospheric Composition,2003-01-06,2020-06-30
+CH4,merged_emma,4.4,Greenhouse Gases,Atmospheric Composition,2003-01-06,2021-12-31
+CH4,merged_emma,4.5,Greenhouse Gases,Atmospheric Composition,2003-01-06,2022-12-31
+CH4,sciamachy_imap,7.2,Greenhouse Gases,Atmospheric Composition,2003-01-08,2012-04-08
+CH4,sciamachy_wfmd,4.0,Greenhouse Gases,Atmospheric Composition,2002-10-01,2011-12-31
+CH4,tanso2_fts_srfp,2.0.0,Greenhouse Gases,Atmospheric Composition,2019-02-05,2022-12-31
+CH4,tanso2_fts_srpr,2.0.0,Greenhouse Gases,Atmospheric Composition,2019-02-05,2021-12-31
+CH4,tanso2_fts_srpr,2.0.1,Greenhouse Gases,Atmospheric Composition,2019-02-05,2022-12-31
+CH4,tanso_fts_ocfp,7.1,Greenhouse Gases,Atmospheric Composition,2009-04-18,2016-12-31
+CH4,tanso_fts_ocfp,7.2,Greenhouse Gases,Atmospheric Composition,2009-04-18,2018-12-31
+CH4,tanso_fts_ocfp,7.3,Greenhouse Gases,Atmospheric Composition,2009-04-18,2022-12-31
+CH4,tanso_fts_ocpr,7.0,Greenhouse Gases,Atmospheric Composition,2009-04-18,2016-12-31
+CH4,tanso_fts_ocpr,7.2,Greenhouse Gases,Atmospheric Composition,2009-04-18,2018-12-31
+CH4,tanso_fts_ocpr,9.0,Greenhouse Gases,Atmospheric Composition,2009-04-23,2022-12-31
+CH4,tanso_fts_srfp,2.3.8,Greenhouse Gases,Atmospheric Composition,2009-04-01,2022-12-31
+CH4,tanso_fts_srpr,2.3.8,Greenhouse Gases,Atmospheric Composition,2009-04-01,2016-12-31
+CH4,tanso_fts_srpr,2.3.9,Greenhouse Gases,Atmospheric Composition,2009-04-01,2022-12-31
+CO2,airs_nlis,3.0,Greenhouse Gases,Atmospheric Composition,2003-04-01,2007-07-31
+CO2,iasi_merged_obs4mips,10.1,Greenhouse Gases,Atmospheric Composition,2007-07-01,2025-06-30
+CO2,iasi_metop_a_nlis,10.1,Greenhouse Gases,Atmospheric Composition,2007-07-01,2021-10-15
+CO2,iasi_metop_a_nlis,8.0,Greenhouse Gases,Atmospheric Composition,2007-07-01,2015-05-31
+CO2,iasi_metop_a_nlis,9.1,Greenhouse Gases,Atmospheric Composition,2007-07-01,2021-08-31
+CO2,iasi_metop_b_nlis,10.1,Greenhouse Gases,Atmospheric Composition,2013-02-01,2022-12-31
+CO2,iasi_metop_b_nlis,4.0,Greenhouse Gases,Atmospheric Composition,2013-02-01,2016-12-31
+CO2,iasi_metop_b_nlis,4.2,Greenhouse Gases,Atmospheric Composition,2013-02-01,2019-12-31
+CO2,iasi_metop_b_nlis,9.1,Greenhouse Gases,Atmospheric Composition,2013-02-01,2021-12-31
+CO2,iasi_metop_c_nlis,10.1,Greenhouse Gases,Atmospheric Composition,2019-05-01,2022-12-31
+CO2,merged_emma,3.0,Greenhouse Gases,Atmospheric Composition,2003-01-08,2016-12-31
+CO2,merged_emma,3.1,Greenhouse Gases,Atmospheric Composition,2003-01-08,2017-12-31
+CO2,merged_emma,4.1,Greenhouse Gases,Atmospheric Composition,2003-01-08,2018-12-31
+CO2,merged_emma,4.2,Greenhouse Gases,Atmospheric Composition,2003-01-08,2019-12-31
+CO2,merged_emma,4.3,Greenhouse Gases,Atmospheric Composition,2003-01-08,2020-06-30
+CO2,merged_emma,4.4,Greenhouse Gases,Atmospheric Composition,2003-01-08,2021-12-31
+CO2,merged_emma,4.5,Greenhouse Gases,Atmospheric Composition,2003-01-08,2022-12-31
+CO2,sciamachy_besd,02.01.02,Greenhouse Gases,Atmospheric Composition,2003-01-08,2012-03-24
+CO2,sciamachy_wfmd,4.0,Greenhouse Gases,Atmospheric Composition,2002-10-01,2012-04-08
+CO2,tanso2_fts_srfp,2.0.0,Greenhouse Gases,Atmospheric Composition,2019-02-05,2022-12-31
+CO2,tanso_fts_ocfp,7.1,Greenhouse Gases,Atmospheric Composition,2009-04-18,2016-12-31
+CO2,tanso_fts_ocfp,7.2,Greenhouse Gases,Atmospheric Composition,2009-04-18,2018-12-31
+CO2,tanso_fts_ocfp,7.3,Greenhouse Gases,Atmospheric Composition,2009-04-18,2022-12-31
+CO2,tanso_fts_srfp,2.3.8,Greenhouse Gases,Atmospheric Composition,2009-04-01,2022-12-31
+Ozone,ace,v0001,Ozone,Atmospheric Composition,2004-02-01,2020-12-31
+Ozone,ace,v0002,Ozone,Atmospheric Composition,2004-02-01,2022-12-31
+Ozone,ace,v0003,Ozone,Atmospheric Composition,2004-02-01,2024-11-30
+Ozone,gome,v0004,Ozone,Atmospheric Composition,1995-07-01,2011-05-31
+Ozone,gome,v0005,Ozone,Atmospheric Composition,1995-06-01,2011-06-30
+Ozone,gome,v0006,Ozone,Atmospheric Composition,1995-06-01,2011-06-30
+Ozone,gome,v0100,Ozone,Atmospheric Composition,1995-06-01,2011-07-31
+Ozone,gome2_a,v0004,Ozone,Atmospheric Composition,2007-04-01,2013-06-30
+Ozone,gome2_a,v0005,Ozone,Atmospheric Composition,2007-01-01,2017-12-31
+Ozone,gome2_a,v0006,Ozone,Atmospheric Composition,2007-01-01,2019-08-31
+Ozone,gome2_a,v0007,Ozone,Atmospheric Composition,2019-09-01,2020-10-31
+Ozone,gome2_a,v0100,Ozone,Atmospheric Composition,2007-01-01,2021-10-31
+Ozone,gome2_b,v0005,Ozone,Atmospheric Composition,2013-05-01,2017-12-31
+Ozone,gome2_b,v0006,Ozone,Atmospheric Composition,2013-04-01,2017-12-31
+Ozone,gome2_b,v0007,Ozone,Atmospheric Composition,2014-06-01,2020-11-30
+Ozone,gome2_b,v0008,Ozone,Atmospheric Composition,2020-11-01,2021-10-31
+Ozone,gome2_b,v0009,Ozone,Atmospheric Composition,2021-07-01,2023-06-30
+Ozone,gome2_b,v0100,Ozone,Atmospheric Composition,2013-01-01,2018-10-31
+Ozone,gome2_b,v0101,Ozone,Atmospheric Composition,2018-07-01,2023-04-30
+Ozone,gome2_b,v0200,Ozone,Atmospheric Composition,2013-01-01,2025-04-30
+Ozone,gome2_c,v0100,Ozone,Atmospheric Composition,2019-07-01,2025-04-30
+Ozone,gomos,v0001,Ozone,Atmospheric Composition,2002-08-01,2011-12-31
+Ozone,gop_ecv,v0100,Ozone,Atmospheric Composition,1995-07-01,2021-10-31
+Ozone,gto_ecv,v0100,Ozone,Atmospheric Composition,1995-07-01,2017-06-30
+Ozone,gto_ecv,v0200,Ozone,Atmospheric Composition,2007-01-01,2018-06-30
+Ozone,gto_ecv,v0300,Ozone,Atmospheric Composition,2007-01-01,2018-10-31
+Ozone,gto_ecv,v0400,Ozone,Atmospheric Composition,2007-01-01,2019-07-31
+Ozone,gto_ecv,v0500,Ozone,Atmospheric Composition,2007-01-01,2019-10-31
+Ozone,gto_ecv,v0600,Ozone,Atmospheric Composition,2007-01-01,2020-04-30
+Ozone,gto_ecv,v0700,Ozone,Atmospheric Composition,2007-01-01,2020-10-31
+Ozone,gto_ecv,v0800,Ozone,Atmospheric Composition,2007-01-01,2021-10-31
+Ozone,gto_ecv,v0900,Ozone,Atmospheric Composition,2013-01-01,2022-04-30
+Ozone,gto_ecv,v1000,Ozone,Atmospheric Composition,2013-01-01,2022-10-31
+Ozone,gto_ecv,v1100,Ozone,Atmospheric Composition,2013-01-01,2023-04-30
+Ozone,gto_ecv,v2000,Ozone,Atmospheric Composition,1995-07-01,2023-04-30
+Ozone,gto_ecv,v2100,Ozone,Atmospheric Composition,2023-05-01,2024-10-31
+Ozone,gto_ecv,v2200,Ozone,Atmospheric Composition,2024-11-01,2025-04-30
+Ozone,haloe,v0001,Ozone,Atmospheric Composition,1991-10-01,2005-09-30
+Ozone,iasi_a_day_time,v0001,Ozone,Atmospheric Composition,2007-10-01,2020-01-31
+Ozone,iasi_a_day_time,v0002,Ozone,Atmospheric Composition,2020-02-01,2020-07-31
+Ozone,iasi_a_day_time,v0003,Ozone,Atmospheric Composition,2019-12-01,2021-08-31
+Ozone,iasi_a_day_time,v0004,Ozone,Atmospheric Composition,2007-10-01,2021-08-31
+Ozone,iasi_a_night_time,v0001,Ozone,Atmospheric Composition,2007-10-01,2020-01-31
+Ozone,iasi_a_night_time,v0002,Ozone,Atmospheric Composition,2020-02-01,2020-07-31
+Ozone,iasi_a_night_time,v0003,Ozone,Atmospheric Composition,2019-12-01,2021-08-31
+Ozone,iasi_a_night_time,v0004,Ozone,Atmospheric Composition,2007-10-01,2021-08-31
+Ozone,iasi_b_day_time,v0001,Ozone,Atmospheric Composition,2013-05-01,2020-01-31
+Ozone,iasi_b_day_time,v0002,Ozone,Atmospheric Composition,2020-02-01,2020-07-31
+Ozone,iasi_b_day_time,v0003,Ozone,Atmospheric Composition,2019-12-01,2023-07-31
+Ozone,iasi_b_day_time,v0004,Ozone,Atmospheric Composition,2013-03-01,2025-07-31
+Ozone,iasi_b_night_time,v0001,Ozone,Atmospheric Composition,2013-05-01,2020-01-31
+Ozone,iasi_b_night_time,v0002,Ozone,Atmospheric Composition,2020-02-01,2020-07-31
+Ozone,iasi_b_night_time,v0003,Ozone,Atmospheric Composition,2019-12-01,2023-07-31
+Ozone,iasi_b_night_time,v0004,Ozone,Atmospheric Composition,2013-03-01,2025-07-31
+Ozone,iasi_c_day_time,v0001,Ozone,Atmospheric Composition,2019-10-01,2019-11-30
+Ozone,iasi_c_day_time,v0003,Ozone,Atmospheric Composition,2019-12-01,2023-07-31
+Ozone,iasi_c_day_time,v0004,Ozone,Atmospheric Composition,2020-01-01,2025-07-31
+Ozone,iasi_c_night_time,v0001,Ozone,Atmospheric Composition,2019-10-01,2019-11-30
+Ozone,iasi_c_night_time,v0003,Ozone,Atmospheric Composition,2019-12-01,2023-07-31
+Ozone,iasi_c_night_time,v0004,Ozone,Atmospheric Composition,2020-01-01,2025-07-31
+Ozone,megridop_anom,v0001,Ozone,Atmospheric Composition,2001-11-01,2019-12-31
+Ozone,megridop_anom,v0002,Ozone,Atmospheric Composition,2001-11-01,2020-12-31
+Ozone,megridop_anom,v0003,Ozone,Atmospheric Composition,2001-11-01,2021-12-31
+Ozone,megridop_anom,v0004,Ozone,Atmospheric Composition,2001-11-01,2022-12-31
+Ozone,megridop_conc,v0001,Ozone,Atmospheric Composition,2001-11-01,2019-12-31
+Ozone,megridop_conc,v0002,Ozone,Atmospheric Composition,2001-11-01,2020-12-31
+Ozone,megridop_conc,v0003,Ozone,Atmospheric Composition,2001-11-01,2021-12-31
+Ozone,megridop_conc,v0004,Ozone,Atmospheric Composition,2001-11-01,2022-12-31
+Ozone,megridop_conc,v0005,Ozone,Atmospheric Composition,2023-01-01,2024-12-31
+Ozone,mipas,v0001,Ozone,Atmospheric Composition,2002-07-01,2012-04-30
+Ozone,mipas,v0002,Ozone,Atmospheric Composition,2002-07-01,2012-04-30
+Ozone,mls,v0001,Ozone,Atmospheric Composition,2004-08-01,2019-07-31
+Ozone,mls,v0002,Ozone,Atmospheric Composition,2004-08-01,2021-12-31
+Ozone,mls,v0003,Ozone,Atmospheric Composition,2004-08-01,2024-12-31
+Ozone,msr,v0020,Ozone,Atmospheric Composition,1970-04-01,2018-01-31
+Ozone,msr,v0021,Ozone,Atmospheric Composition,1979-01-01,2018-12-31
+Ozone,msr,v0022,Ozone,Atmospheric Composition,2018-12-01,2020-12-31
+Ozone,msr,v0023,Ozone,Atmospheric Composition,1970-04-01,2018-12-31
+Ozone,msr,v0024,Ozone,Atmospheric Composition,2018-12-01,2021-12-31
+Ozone,msr,v0025,Ozone,Atmospheric Composition,2022-01-01,2024-12-31
+Ozone,omi,v0004,Ozone,Atmospheric Composition,2004-10-01,2015-12-31
+Ozone,omi,v0005,Ozone,Atmospheric Composition,2016-01-01,2017-12-31
+Ozone,omi,v0006,Ozone,Atmospheric Composition,2004-10-01,2019-08-31
+Ozone,omi,v0007,Ozone,Atmospheric Composition,2019-09-01,2021-10-31
+Ozone,omi,v0100,Ozone,Atmospheric Composition,2004-10-01,2019-01-31
+Ozone,omi,v0101,Ozone,Atmospheric Composition,2017-01-01,2023-04-30
+Ozone,omi,v0200,Ozone,Atmospheric Composition,2004-10-01,2025-04-30
+Ozone,omps,v0100,Ozone,Atmospheric Composition,2012-01-01,2025-04-30
+Ozone,omps / ubr,v0001,Ozone,Atmospheric Composition,2012-02-01,2021-12-31
+Ozone,omps / ubr,v0002,Ozone,Atmospheric Composition,2012-02-01,2024-12-31
+Ozone,omps / usask,v0002,Ozone,Atmospheric Composition,2012-02-01,2022-12-31
+Ozone,omps / usask,v0003,Ozone,Atmospheric Composition,2012-02-01,2024-12-31
+Ozone,osiris,v0001,Ozone,Atmospheric Composition,2001-11-01,2020-12-31
+Ozone,osiris,v0002,Ozone,Atmospheric Composition,2001-11-01,2022-12-31
+Ozone,osiris,v0003,Ozone,Atmospheric Composition,2001-11-01,2024-12-31
+Ozone,saber,v0001,Ozone,Atmospheric Composition,2002-01-01,2019-07-31
+Ozone,saber,v0002,Ozone,Atmospheric Composition,2002-01-01,2024-12-31
+Ozone,sage_2,v0001,Ozone,Atmospheric Composition,1984-10-01,2005-08-31
+Ozone,sage_3,v0001,Ozone,Atmospheric Composition,2017-06-01,2022-12-31
+Ozone,sage_3,v0002,Ozone,Atmospheric Composition,2017-06-01,2024-09-30
+Ozone,sage_cci_omps_anom,v0001,Ozone,Atmospheric Composition,1984-10-01,2017-02-28
+Ozone,sage_cci_omps_anom,v0002,Ozone,Atmospheric Composition,1984-10-01,2018-01-31
+Ozone,sage_cci_omps_anom,v0003,Ozone,Atmospheric Composition,1984-10-01,2018-12-31
+Ozone,sage_cci_omps_anom,v0004,Ozone,Atmospheric Composition,2018-01-01,2019-12-31
+Ozone,sage_cci_omps_anom,v0005,Ozone,Atmospheric Composition,1984-10-01,2019-12-31
+Ozone,sage_cci_omps_anom,v0006,Ozone,Atmospheric Composition,1984-10-01,2020-12-31
+Ozone,sage_cci_omps_anom,v0007,Ozone,Atmospheric Composition,1984-10-01,2021-12-31
+Ozone,sage_cci_omps_anom,v0008,Ozone,Atmospheric Composition,1984-10-01,2022-12-31
+Ozone,sage_cci_omps_conc,v0001,Ozone,Atmospheric Composition,1984-10-01,2017-02-28
+Ozone,sage_cci_omps_conc,v0002,Ozone,Atmospheric Composition,1984-10-01,2018-01-31
+Ozone,sage_cci_omps_conc,v0003,Ozone,Atmospheric Composition,1984-10-01,2018-12-31
+Ozone,sage_cci_omps_conc,v0004,Ozone,Atmospheric Composition,2018-01-01,2019-12-31
+Ozone,sage_cci_omps_conc,v0005,Ozone,Atmospheric Composition,1984-10-01,2019-12-31
+Ozone,sage_cci_omps_conc,v0006,Ozone,Atmospheric Composition,1984-10-01,2020-12-31
+Ozone,sage_cci_omps_conc,v0007,Ozone,Atmospheric Composition,1984-10-01,2021-12-31
+Ozone,sage_cci_omps_conc,v0008,Ozone,Atmospheric Composition,1984-10-01,2022-12-31
+Ozone,sage_cci_omps_conc,v0009,Ozone,Atmospheric Composition,2023-01-01,2024-12-31
+Ozone,sciamachy,v0001,Ozone,Atmospheric Composition,2002-08-01,2012-03-31
+Ozone,sciamachy,v0004,Ozone,Atmospheric Composition,2002-08-01,2011-02-28
+Ozone,sciamachy,v0005,Ozone,Atmospheric Composition,2002-08-01,2012-04-30
+Ozone,sciamachy,v0006,Ozone,Atmospheric Composition,2002-08-01,2012-04-30
+Ozone,sciamachy,v0100,Ozone,Atmospheric Composition,2002-08-01,2012-04-30
+Ozone,smr,v0001,Ozone,Atmospheric Composition,2001-07-01,2014-08-31
+Ozone,tropomi,v0100,Ozone,Atmospheric Composition,2018-05-01,2025-04-30
+Clouds - CCI/C3S,aatsr_on_envisat,v3.0,Clouds,Atmospheric Physics,2002-05-01,2012-04-30
+Clouds - CCI/C3S,atsr2_on_ers2,v3.0,Clouds,Atmospheric Physics,1995-06-01,2003-12-31
+Clouds - CCI/C3S,slstr_on_sentinel_3a,v3.1.1,Clouds,Atmospheric Physics,2017-01-01,2022-06-30
+Clouds - CCI/C3S,slstr_on_sentinel_3a_3b,v4.0,Clouds,Atmospheric Physics,2018-10-01,2023-12-31
+Clouds - CCI/C3S,slstr_on_sentinel_3a_3b_ea,v4.0,Clouds,Atmospheric Physics,2022-07-01,2023-12-31
+Clouds - CCI/C3S,slstr_on_sentinel_3b,v3.1.1,Clouds,Atmospheric Physics,2018-10-01,2022-06-30
+Clouds - CMSAF CLARA-A3,,A3,Clouds,Atmospheric Physics,1979-01-01,2026-06-30
+Earth Rad Budget - CCI/C3S,aatsr,v3.0,Earth Radiation Budget,Atmospheric Physics,2002-05-01,2012-04-30
+Earth Rad Budget - CCI/C3S,atsr2,v3.0,Earth Radiation Budget,Atmospheric Physics,1995-06-01,2002-12-31
+Earth Rad Budget - CCI/C3S,slstr_on_sentinel_3a,v3.1.1,Earth Radiation Budget,Atmospheric Physics,2017-01-01,2022-06-30
+Earth Rad Budget - CCI/C3S,slstr_on_sentinel_3a_3b,v4.0,Earth Radiation Budget,Atmospheric Physics,2018-10-01,2023-12-31
+Earth Rad Budget - CCI/C3S,slstr_on_sentinel_3a_3b_ea,v4.0,Earth Radiation Budget,Atmospheric Physics,2022-07-01,2023-12-31
+Earth Rad Budget - CCI/C3S,slstr_on_sentinel_3b,v3.1.1,Earth Radiation Budget,Atmospheric Physics,2018-10-01,2022-06-30
+Earth Rad Budget - CMSAF CLARA-A3,,A3,Earth Radiation Budget,Atmospheric Physics,1979-01-01,2025-06-30
+Earth Rad Budget - NASA CERES EBAF,,v4.2.1,Earth Radiation Budget,Atmospheric Physics,2000-03-01,2026-05-31
+Earth Rad Budget - NOAA/NCEI HIRS,,1.2_reprocessed,Earth Radiation Budget,Atmospheric Physics,1979-01-01,2025-09-07
+Earth Rad Budget - NOAA/NCEI HIRS,,2.7_reprocessed,Earth Radiation Budget,Atmospheric Physics,1979-01-01,2025-07-31
+Earth Rad Budget - SpecSolarIrrad,,v03r00,Earth Radiation Budget,Atmospheric Physics,1979-01-01,2026-06-30
+Earth Rad Budget - TotSolarIrrad,,v3.10,Earth Radiation Budget,Atmospheric Physics,1979-01-01,2026-03-31
+Precipitation (COBRA),,v1.0,Precipitation,Atmospheric Physics,2000-01-01,2017-12-31
+Precipitation (GIRAFE),,001,Precipitation,Atmospheric Physics,2002-01-01,2026-08-31
+Precipitation (GPCP),,v2.3_and_v1.3,Precipitation,Atmospheric Physics,1979-01-01,2024-03-31
+Precipitation (GPCP),,v3.2,Precipitation,Atmospheric Physics,1983-01-01,2023-12-31
+Precipitation (GPCP),,v3.3,Precipitation,Atmospheric Physics,1983-01-01,2025-12-31
+Surface Rad Budget - CCI/C3S,aatsr_on_envisat,v3.0,Surface Radiation Budget,Atmospheric Physics,2002-05-01,2012-04-30
+Surface Rad Budget - CCI/C3S,atsr2_on_ers2,v3.0,Surface Radiation Budget,Atmospheric Physics,1995-06-01,2002-12-31
+Surface Rad Budget - CCI/C3S,slstr_on_sentinel_3a,v3.1.1,Surface Radiation Budget,Atmospheric Physics,2017-01-01,2022-06-30
+Surface Rad Budget - CCI/C3S,slstr_on_sentinel_3a_3b,v4.0,Surface Radiation Budget,Atmospheric Physics,2018-10-01,2023-12-31
+Surface Rad Budget - CCI/C3S,slstr_on_sentinel_3a_3b_ea,v4.0,Surface Radiation Budget,Atmospheric Physics,2022-07-01,2023-12-31
+Surface Rad Budget - CCI/C3S,slstr_on_sentinel_3b,v3.1.1,Surface Radiation Budget,Atmospheric Physics,2018-10-01,2022-06-30
+Surface Rad Budget - CMSAF CLARA-A3,,A3,Surface Radiation Budget,Atmospheric Physics,1979-01-01,2026-06-30
+Total Column Water Vapour (HOAPS),,v1.0,Upper-air Water Vapour,Atmospheric Physics,1988-01-01,2014-12-31
+Total Column Water Vapour (HOAPS),,v1.1,Upper-air Water Vapour,Atmospheric Physics,2015-01-01,2020-12-31
+Total Column Water Vapour (MERIS/SSMI),c3s_meris_and_ssm_i,v1.0,Upper-air Water Vapour,Atmospheric Physics,2002-05-01,2012-03-31
+Total Column Water Vapour (MERIS/SSMI),near_infrared_hoaps_combined,v1.0,Upper-air Water Vapour,Atmospheric Physics,2002-07-01,2017-12-31
+Tropospheric Humidity Profiles (RO),radio_occultation_data,001,Upper-air Water Vapour,Atmospheric Physics,2006-12-01,2025-12-31
+Tropospheric Humidity Profiles (RO),reanalysis_data,001,Upper-air Water Vapour,Atmospheric Physics,2006-12-01,2025-12-31
+Upper Tropospheric Humidity,,v2,Upper-air Water Vapour,Atmospheric Physics,1994-07-06,2018-12-31
+Upper Tropospheric Humidity,amsu_b_on_noaa_15,v1,Upper-air Water Vapour,Atmospheric Physics,1999-01-01,2002-12-31
+Upper Tropospheric Humidity,amsu_b_on_noaa_16,v1,Upper-air Water Vapour,Atmospheric Physics,2001-01-01,2006-12-31
+Upper Tropospheric Humidity,amsu_b_on_noaa_17,v1,Upper-air Water Vapour,Atmospheric Physics,2003-01-01,2008-12-31
+Upper Tropospheric Humidity,mhs_on_metop_a,v1,Upper-air Water Vapour,Atmospheric Physics,2007-01-01,2021-02-28
+Upper Tropospheric Humidity,mhs_on_metop_b,v1,Upper-air Water Vapour,Atmospheric Physics,2013-01-15,2021-02-28
+Upper Tropospheric Humidity,mhs_on_metop_c,v1,Upper-air Water Vapour,Atmospheric Physics,2019-12-11,2021-02-28
+Upper Tropospheric Humidity,mhs_on_noaa_18,v1,Upper-air Water Vapour,Atmospheric Physics,2006-01-01,2018-10-20
+Upper Tropospheric Humidity,mhs_on_noaa_19,v1,Upper-air Water Vapour,Atmospheric Physics,2016-01-01,2021-02-28
+Glaciers elevation and mass change,,wgms_fog_2022.09,Glaciers,Cryosphere,1975-04-01,2021-09-30
+Glaciers elevation and mass change,,wgms_fog_2023.09,Glaciers,Cryosphere,1975-04-01,2024-09-30
+Randolph Glacier Inventory for the year 2000,,rgi_5.0,Glaciers,Cryosphere,1990-01-01,2010-12-31
+Randolph Glacier Inventory for the year 2000,,rgi_6.0,Glaciers,Cryosphere,1990-01-01,2010-12-31
+Randolph Glacier Inventory for the year 2000,,rgi_7.0,Glaciers,Cryosphere,1990-01-01,2010-12-31
+Ice Sheet Gravimetric Mass Balance,,5,Ice Sheets,Cryosphere,2002-04-16,2023-12-17
+Ice Sheet Surface Elevation Change (Antarctica),,2.0,Ice Sheets,Cryosphere,1994-11-01,2017-06-01
+Ice Sheet Surface Elevation Change (Antarctica),,3.0,Ice Sheets,Cryosphere,1994-11-01,2018-07-02
+Ice Sheet Surface Elevation Change (Antarctica),,4.0,Ice Sheets,Cryosphere,1994-11-01,2020-05-02
+Ice Sheet Surface Elevation Change (Antarctica),,5.0,Ice Sheets,Cryosphere,1994-11-01,2023-08-02
+Ice Sheet Surface Elevation Change (Antarctica),,7.0,Ice Sheets,Cryosphere,1994-07-02,2023-10-01
+Ice Sheet Surface Elevation Change (Greenland),,2.0,Ice Sheets,Cryosphere,1992-01-15,2021-06-15
+Ice Sheet Surface Elevation Change (Greenland),,3.0,Ice Sheets,Cryosphere,1992-01-01,2023-07-01
+Ice Sheet Surface Elevation Change (Greenland),,4.0,Ice Sheets,Cryosphere,1992-01-01,2024-05-01
+Ice Sheet Surface Elevation Change (Greenland),,5.0,Ice Sheets,Cryosphere,1992-01-01,2025-10-01
+Ice Sheet Surface Elevation Change (Greenland),,6.0,Ice Sheets,Cryosphere,1992-01-01,2026-01-01
+Ice Sheet Surface Elevation Change (Greenland),,7.0,Ice Sheets,Cryosphere,1992-04-01,2026-04-02
+Ice Sheet Velocity (Antarctica),,1.5,Ice Sheets,Cryosphere,2021-04-01,2024-03-31
+Ice Sheet Velocity (Greenland),,1.2,Ice Sheets,Cryosphere,2017-10-01,2019-09-30
+Ice Sheet Velocity (Greenland),,1.3,Ice Sheets,Cryosphere,2014-10-01,2020-09-30
+Ice Sheet Velocity (Greenland),,1.4,Ice Sheets,Cryosphere,2020-10-01,2021-09-30
+Ice Sheet Velocity (Greenland),,1.5,Ice Sheets,Cryosphere,2021-10-01,2024-09-30
+Snow Cover Extent,,1.0,Snow,Cryosphere,1982-01-01,2025-12-31
+Snow Water Equivalent,,1.0,Snow,Cryosphere,1979-01-01,2025-12-31
+Surface Albedo,avhrr / noaa_11,v1,Albedo,Land Biosphere,1988-11-30,1994-09-20
+Surface Albedo,avhrr / noaa_11,v2,Albedo,Land Biosphere,1988-11-30,1994-09-20
+Surface Albedo,avhrr / noaa_14,v1,Albedo,Land Biosphere,1995-02-10,2001-03-10
+Surface Albedo,avhrr / noaa_14,v2,Albedo,Land Biosphere,1995-02-10,2001-03-10
+Surface Albedo,avhrr / noaa_16,v1,Albedo,Land Biosphere,2001-03-20,2002-09-10
+Surface Albedo,avhrr / noaa_16,v2,Albedo,Land Biosphere,2001-03-20,2002-09-10
+Surface Albedo,avhrr / noaa_17,v1,Albedo,Land Biosphere,2002-09-20,2005-12-31
+Surface Albedo,avhrr / noaa_17,v2,Albedo,Land Biosphere,2002-09-20,2005-12-31
+Surface Albedo,avhrr / noaa_7,v1,Albedo,Land Biosphere,1981-09-20,1984-12-31
+Surface Albedo,avhrr / noaa_7,v2,Albedo,Land Biosphere,1981-09-20,1984-12-31
+Surface Albedo,avhrr / noaa_9,v1,Albedo,Land Biosphere,1985-03-20,1988-11-10
+Surface Albedo,avhrr / noaa_9,v2,Albedo,Land Biosphere,1985-03-20,1988-11-10
+Surface Albedo,olci_and_slstr / sentinel_3,v3.1,Albedo,Land Biosphere,2018-07-10,2025-12-31
+Surface Albedo,vgt / proba,v0,Albedo,Land Biosphere,2013-12-24,2020-06-13
+Surface Albedo,vgt / proba,v1,Albedo,Land Biosphere,2013-12-24,2020-06-13
+Surface Albedo,vgt / proba,v2,Albedo,Land Biosphere,2013-10-31,2020-06-30
+Surface Albedo,vgt / spot,v0,Albedo,Land Biosphere,1999-01-03,2014-05-13
+Surface Albedo,vgt / spot,v1,Albedo,Land Biosphere,1998-04-10,2014-05-31
+Surface Albedo,vgt / spot,v2,Albedo,Land Biosphere,1998-04-10,2014-05-31
+FAPAR,avhrr / noaa_11,v1,FAPAR,Land Biosphere,1988-11-30,1994-09-20
+FAPAR,avhrr / noaa_11,v3,FAPAR,Land Biosphere,1988-11-30,1994-09-20
+FAPAR,avhrr / noaa_14,v1,FAPAR,Land Biosphere,1995-02-10,2001-03-10
+FAPAR,avhrr / noaa_14,v3,FAPAR,Land Biosphere,1995-02-10,2001-03-10
+FAPAR,avhrr / noaa_16,v1,FAPAR,Land Biosphere,2001-03-20,2002-09-10
+FAPAR,avhrr / noaa_16,v3,FAPAR,Land Biosphere,2001-03-20,2002-09-10
+FAPAR,avhrr / noaa_17,v1,FAPAR,Land Biosphere,2002-09-20,2005-12-31
+FAPAR,avhrr / noaa_17,v3,FAPAR,Land Biosphere,2002-09-20,2005-12-31
+FAPAR,avhrr / noaa_7,v1,FAPAR,Land Biosphere,1981-09-20,1984-12-31
+FAPAR,avhrr / noaa_7,v3,FAPAR,Land Biosphere,1981-09-20,1984-12-31
+FAPAR,avhrr / noaa_9,v1,FAPAR,Land Biosphere,1985-03-20,1988-11-10
+FAPAR,avhrr / noaa_9,v3,FAPAR,Land Biosphere,1985-03-20,1988-11-10
+FAPAR,olci_and_slstr / sentinel_3,v4,FAPAR,Land Biosphere,2018-07-10,2019-04-20
+FAPAR,olci_and_slstr / sentinel_3,v4.1,FAPAR,Land Biosphere,2018-07-10,2024-12-31
+FAPAR,vgt / proba,v0,FAPAR,Land Biosphere,2014-05-24,2020-06-13
+FAPAR,vgt / proba,v2,FAPAR,Land Biosphere,2013-12-24,2020-06-13
+FAPAR,vgt / proba,v3,FAPAR,Land Biosphere,2013-10-31,2020-06-30
+FAPAR,vgt / spot,v0,FAPAR,Land Biosphere,1999-01-03,2014-05-13
+FAPAR,vgt / spot,v1,FAPAR,Land Biosphere,1998-04-10,2014-05-31
+FAPAR,vgt / spot,v3,FAPAR,Land Biosphere,1998-04-10,2014-05-31
+Fire Burned Areas,modis,5.0cds,Fire,Land Biosphere,2001-01-01,2016-12-22
+Fire Burned Areas,modis,5.1.1cds,Fire,Land Biosphere,2001-01-01,2019-12-01
+Fire Burned Areas,modis,5.1cds,Fire,Land Biosphere,2001-01-01,2019-12-01
+Fire Burned Areas,olci,1.0,Fire,Land Biosphere,2017-01-01,2020-04-01
+Fire Burned Areas,olci,1.1,Fire,Land Biosphere,2017-01-01,2023-12-01
+Fire Radiative Power,,1.0,Fire,Land Biosphere,2020-02-01,2021-02-28
+Fire Radiative Power,sentinel_3a,1.2,Fire,Land Biosphere,2020-01-01,2026-02-28
+Fire Radiative Power,sentinel_3b,1.2,Fire,Land Biosphere,2020-01-01,2026-02-28
+LAI,avhrr / noaa_11,v1,LAI,Land Biosphere,1988-11-30,1994-09-20
+LAI,avhrr / noaa_11,v3,LAI,Land Biosphere,1988-11-30,1994-09-20
+LAI,avhrr / noaa_14,v1,LAI,Land Biosphere,1995-02-10,2001-03-10
+LAI,avhrr / noaa_14,v3,LAI,Land Biosphere,1995-02-10,2001-03-10
+LAI,avhrr / noaa_16,v1,LAI,Land Biosphere,2001-03-20,2002-09-10
+LAI,avhrr / noaa_16,v3,LAI,Land Biosphere,2001-03-20,2002-09-10
+LAI,avhrr / noaa_17,v1,LAI,Land Biosphere,2002-09-20,2005-12-31
+LAI,avhrr / noaa_17,v3,LAI,Land Biosphere,2002-09-20,2005-12-31
+LAI,avhrr / noaa_7,v1,LAI,Land Biosphere,1981-09-20,1984-12-31
+LAI,avhrr / noaa_7,v3,LAI,Land Biosphere,1981-09-20,1984-12-31
+LAI,avhrr / noaa_9,v1,LAI,Land Biosphere,1985-03-20,1988-11-10
+LAI,avhrr / noaa_9,v3,LAI,Land Biosphere,1985-03-20,1988-11-10
+LAI,olci_and_slstr / sentinel_3,v4,LAI,Land Biosphere,2018-07-10,2019-04-20
+LAI,olci_and_slstr / sentinel_3,v4.1,LAI,Land Biosphere,2018-07-10,2024-12-31
+LAI,vgt / proba,v0,LAI,Land Biosphere,2014-05-24,2020-06-13
+LAI,vgt / proba,v2,LAI,Land Biosphere,2013-12-24,2020-06-13
+LAI,vgt / proba,v3,LAI,Land Biosphere,2013-10-31,2020-06-30
+LAI,vgt / spot,v0,LAI,Land Biosphere,1999-01-03,2014-05-13
+LAI,vgt / spot,v1,LAI,Land Biosphere,1998-04-10,2014-05-31
+LAI,vgt / spot,v3,LAI,Land Biosphere,1998-04-10,2014-05-31
+Land Cover,,v2.0.7cds,Land Cover,Land Biosphere,1992-01-01,2015-12-31
+Land Cover,,v2.1.1,Land Cover,Land Biosphere,2016-01-01,2022-12-31
+Land Surface Temperature,,v3.00,Land Surface Temperature,Land Biosphere,1995-06-01,2025-06-30
+Lake Surface Temperature,,4.0,Lakes,Land Hydrology,1995-06-01,2019-08-31
+Lake Surface Temperature,,4.2,Lakes,Land Hydrology,2019-09-01,2020-10-31
+Lake Surface Temperature,,4.5 (deprecated),Lakes,Land Hydrology,1995-06-01,2022-09-30
+Lake Surface Temperature,,4.5.1,Lakes,Land Hydrology,1995-06-01,2021-03-29
+Lake Surface Temperature,,4.5.2,Lakes,Land Hydrology,2021-01-01,2025-12-31
+Lake Water Level,,5.0,Lakes,Land Hydrology,1992-09-26,2024-12-30
+Soil Moisture,,v202505,Soil Moisture,Land Hydrology,1978-11-01,2026-09-20
+Soil Moisture,,v202505.1,Soil Moisture,Land Hydrology,2025-11-01,2026-09-30
+Soil Moisture,,v202505.2,Soil Moisture,Land Hydrology,2026-09-01,2026-09-30
+Soil Moisture,active,deprecated_v201912,Soil Moisture,Land Hydrology,1991-08-01,2023-08-31
+Soil Moisture,active,v201706,Soil Moisture,Land Hydrology,1991-08-01,2020-10-31
+Soil Moisture,active,v201812,Soil Moisture,Land Hydrology,1991-08-01,2022-12-31
+Soil Moisture,active,v201912.1,Soil Moisture,Land Hydrology,2021-11-01,2023-12-31
+Soil Moisture,active,v202012,Soil Moisture,Land Hydrology,1991-08-01,2024-11-30
+Soil Moisture,active,v202212,Soil Moisture,Land Hydrology,1991-08-01,2025-07-31
+Soil Moisture,active,v202312,Soil Moisture,Land Hydrology,1991-08-01,2025-07-31
+Soil Moisture,active,v202505,Soil Moisture,Land Hydrology,1991-08-01,2026-09-30
+Soil Moisture,active,v202505.2,Soil Moisture,Land Hydrology,2026-09-01,2026-09-30
+Soil Moisture,combined,deprecated_v201912,Soil Moisture,Land Hydrology,1978-11-01,2023-08-31
+Soil Moisture,combined,v201706,Soil Moisture,Land Hydrology,1978-11-01,2020-10-31
+Soil Moisture,combined,v201812,Soil Moisture,Land Hydrology,1978-11-01,2022-12-31
+Soil Moisture,combined,v201912.1,Soil Moisture,Land Hydrology,2023-08-01,2023-12-31
+Soil Moisture,combined,v202012,Soil Moisture,Land Hydrology,1978-11-01,2024-11-30
+Soil Moisture,combined,v202212,Soil Moisture,Land Hydrology,1978-11-01,2025-07-31
+Soil Moisture,combined,v202312,Soil Moisture,Land Hydrology,1978-11-01,2025-07-31
+Soil Moisture,combined,v202505,Soil Moisture,Land Hydrology,1978-11-01,2026-09-30
+Soil Moisture,combined,v202505.2,Soil Moisture,Land Hydrology,2026-09-01,2026-09-30
+Soil Moisture,passive,deprecated_v201912,Soil Moisture,Land Hydrology,1978-11-01,2023-08-31
+Soil Moisture,passive,v201706,Soil Moisture,Land Hydrology,1978-11-01,2020-10-31
+Soil Moisture,passive,v201812,Soil Moisture,Land Hydrology,1978-11-01,2022-12-31
+Soil Moisture,passive,v201912.1,Soil Moisture,Land Hydrology,2023-08-01,2023-12-31
+Soil Moisture,passive,v202012,Soil Moisture,Land Hydrology,1978-11-01,2024-11-30
+Soil Moisture,passive,v202212,Soil Moisture,Land Hydrology,1978-11-01,2026-01-31
+Soil Moisture,passive,v202312,Soil Moisture,Land Hydrology,1978-11-01,2026-01-31
+Soil Moisture,passive,v202505,Soil Moisture,Land Hydrology,1978-11-01,2026-09-30
+Soil Moisture,passive,v202505.2,Soil Moisture,Land Hydrology,2026-09-01,2026-09-30
+Terrestrial Water Storage,,v1.0,Terrestrial Water Storage,Land Hydrology,2002-04-01,2025-09-30
+Terrestrial Water Storage,,v1.1,Terrestrial Water Storage,Land Hydrology,2002-04-01,2026-03-31
+Ocean Colour,,5.0,Ocean Colour,Ocean,1997-09-04,2021-05-31
+Ocean Colour,,5.0.1,Ocean Colour,Ocean,1997-09-04,2021-07-31
+Ocean Colour,,6.0,Ocean Colour,Ocean,1997-09-01,2026-06-30
+SST (CCI v3),aatsr_on_envisat,2.0,SST,Ocean,2002-07-24,2012-04-08
+SST (CCI v3),aatsr_on_envisat,2.1,SST,Ocean,2002-07-24,2012-04-08
+SST (CCI v3),atsr1_on_ers_1,2.0,SST,Ocean,1991-11-01,1996-01-10
+SST (CCI v3),atsr1_on_ers_1,2.1,SST,Ocean,1991-11-01,1996-01-10
+SST (CCI v3),atsr2_on_ers_2,2.0,SST,Ocean,1995-08-01,2003-06-22
+SST (CCI v3),atsr2_on_ers_2,2.1,SST,Ocean,1995-08-01,2003-06-22
+SST (CCI v3),avhrr_on_metop_a,2.0,SST,Ocean,2006-11-21,2021-09-30
+SST (CCI v3),avhrr_on_metop_a,2.1,SST,Ocean,2006-11-21,2021-09-30
+SST (CCI v3),avhrr_on_metop_a,3.0,SST,Ocean,2007-05-21,2021-01-01
+SST (CCI v3),avhrr_on_metop_b,2.0,SST,Ocean,2021-10-01,2021-12-31
+SST (CCI v3),avhrr_on_metop_b,2.1,SST,Ocean,2021-10-01,2022-12-31
+SST (CCI v3),avhrr_on_metop_b,3.0,SST,Ocean,2013-01-15,2026-10-06
+SST (CCI v3),avhrr_on_noaa_06,3.0,SST,Ocean,1979-07-13,1981-09-01
+SST (CCI v3),avhrr_on_noaa_07,2.0,SST,Ocean,1981-08-24,1985-02-18
+SST (CCI v3),avhrr_on_noaa_07,2.1,SST,Ocean,1981-08-24,1985-02-18
+SST (CCI v3),avhrr_on_noaa_07,3.0,SST,Ocean,1981-08-24,1985-02-18
+SST (CCI v3),avhrr_on_noaa_08,3.0,SST,Ocean,1983-05-04,1985-10-14
+SST (CCI v3),avhrr_on_noaa_09,2.0,SST,Ocean,1985-01-04,1992-01-06
+SST (CCI v3),avhrr_on_noaa_09,2.1,SST,Ocean,1985-01-04,1992-01-06
+SST (CCI v3),avhrr_on_noaa_09,3.0,SST,Ocean,1985-01-04,1992-01-06
+SST (CCI v3),avhrr_on_noaa_10,3.0,SST,Ocean,1987-01-01,1991-04-01
+SST (CCI v3),avhrr_on_noaa_11,2.0,SST,Ocean,1988-10-12,1994-09-13
+SST (CCI v3),avhrr_on_noaa_11,2.1,SST,Ocean,1988-10-12,1994-09-13
+SST (CCI v3),avhrr_on_noaa_11,3.0,SST,Ocean,1988-10-12,1994-09-14
+SST (CCI v3),avhrr_on_noaa_12,2.0,SST,Ocean,1991-09-16,1998-12-14
+SST (CCI v3),avhrr_on_noaa_12,2.1,SST,Ocean,1991-09-16,1998-12-14
+SST (CCI v3),avhrr_on_noaa_12,3.0,SST,Ocean,1991-09-16,1998-12-14
+SST (CCI v3),avhrr_on_noaa_14,2.0,SST,Ocean,1995-01-19,1999-12-31
+SST (CCI v3),avhrr_on_noaa_14,2.1,SST,Ocean,1995-01-19,1999-12-31
+SST (CCI v3),avhrr_on_noaa_14,3.0,SST,Ocean,1995-01-19,2002-10-08
+SST (CCI v3),avhrr_on_noaa_15,2.0,SST,Ocean,1998-09-24,2009-12-31
+SST (CCI v3),avhrr_on_noaa_15,2.1,SST,Ocean,1998-09-24,2009-12-31
+SST (CCI v3),avhrr_on_noaa_15,3.0,SST,Ocean,1998-09-24,2008-01-01
+SST (CCI v3),avhrr_on_noaa_16,2.0,SST,Ocean,2003-06-01,2006-12-31
+SST (CCI v3),avhrr_on_noaa_16,2.1,SST,Ocean,2003-06-01,2006-12-31
+SST (CCI v3),avhrr_on_noaa_16,3.0,SST,Ocean,2002-01-14,2007-07-01
+SST (CCI v3),avhrr_on_noaa_17,2.0,SST,Ocean,2002-07-10,2009-12-31
+SST (CCI v3),avhrr_on_noaa_17,2.1,SST,Ocean,2002-07-10,2009-12-31
+SST (CCI v3),avhrr_on_noaa_17,3.0,SST,Ocean,2002-08-01,2009-01-01
+SST (CCI v3),avhrr_on_noaa_18,2.0,SST,Ocean,2005-06-05,2009-12-31
+SST (CCI v3),avhrr_on_noaa_18,2.1,SST,Ocean,2005-06-05,2009-12-31
+SST (CCI v3),avhrr_on_noaa_18,3.0,SST,Ocean,2005-06-05,2015-01-01
+SST (CCI v3),avhrr_on_noaa_19,2.0,SST,Ocean,2009-02-22,2018-12-31
+SST (CCI v3),avhrr_on_noaa_19,2.1,SST,Ocean,2009-02-22,2018-12-31
+SST (CCI v3),avhrr_on_noaa_19,3.0,SST,Ocean,2009-02-22,2018-01-01
+SST (CCI v3),combined_product,1.1,SST,Ocean,1991-09-01,2010-12-31
+SST (CCI v3),combined_product,2.0,SST,Ocean,1981-09-01,2021-12-31
+SST (CCI v3),combined_product,2.1,SST,Ocean,1981-09-01,2022-12-31
+SST (CCI v3),combined_product,3.0,SST,Ocean,1980-01-01,2026-10-06
+SST (CCI v3),slstr_on_sentinel_3a,2.0,SST,Ocean,2017-01-01,2021-12-31
+SST (CCI v3),slstr_on_sentinel_3a,2.1,SST,Ocean,2017-01-01,2022-12-31
+SST (CCI v3),slstr_on_sentinel_3a,3.0,SST,Ocean,2016-06-01,2026-10-06
+SST (CCI v3),slstr_on_sentinel_3b,2.0,SST,Ocean,2019-01-01,2021-12-31
+SST (CCI v3),slstr_on_sentinel_3b,2.1,SST,Ocean,2019-01-01,2022-12-31
+SST (CCI v3),slstr_on_sentinel_3b,3.0,SST,Ocean,2018-05-30,2026-10-06
+SST (GMPE),,v2.0,SST,Ocean,1981-09-01,2016-12-31
+Sea and Sea Ice Surface Temperature,,1.0,SST,Ocean,1982-01-01,2026-09-12
+Sea Ice Concentration,amsr,3.0,Sea Ice,Ocean,2002-06-01,2026-10-06
+Sea Ice Concentration,ssmis,3.0,Sea Ice,Ocean,2021-01-01,2025-09-29
+Sea Ice Concentration,ssmis,3.1,Sea Ice,Ocean,1978-10-01,2020-12-31
+Sea Ice Drift,,1.0,Sea Ice,Ocean,1991-01-01,2020-12-31
+Sea Ice Edge and Type,,1.0,Sea Ice,Ocean,1979-01-02,2021-09-25
+Sea Ice Edge and Type,,2.0,Sea Ice,Ocean,1978-10-25,2023-08-31
+Sea Ice Edge and Type,,3.0,Sea Ice,Ocean,1978-10-25,2025-09-24
+Sea Ice Edge and Type,,4.0,Sea Ice,Ocean,1978-10-25,2026-10-06
+Sea Ice Surface Temperature,,1.0,Sea Ice,Ocean,1982-01-01,2019-06-30
+Sea Ice Surface Temperature,,1.1,Sea Ice,Ocean,2019-07-01,2026-08-31
+Sea Ice Thickness,combined_product,1.0,Sea Ice,Ocean,2010-10-24,2024-04-12
+Sea Ice Thickness,combined_product,1.1,Sea Ice,Ocean,2010-10-28,2026-04-12
+Sea Ice Thickness,combined_product,4.0,Sea Ice,Ocean,1995-10-01,2026-04-30
+Sea Ice Thickness,cryosat_2,1.0,Sea Ice,Ocean,2010-11-01,2021-04-30
+Sea Ice Thickness,cryosat_2,2.0,Sea Ice,Ocean,2010-11-01,2022-04-30
+Sea Ice Thickness,cryosat_2,3.0,Sea Ice,Ocean,2010-11-01,2024-12-31
+Sea Ice Thickness,envisat,1.0,Sea Ice,Ocean,2002-10-01,2010-10-31
+Sea Ice Thickness,envisat,2.0,Sea Ice,Ocean,2002-10-01,2010-10-31
+Sea Ice Thickness,envisat,3.0,Sea Ice,Ocean,2002-10-01,2010-10-31
+Sea Level,,vdt2018,Sea Level,Ocean,1993-01-01,2020-06-03
+Sea Level,,vdt2021,Sea Level,Ocean,1993-01-01,2023-09-08
+Sea Level,,vdt2024,Sea Level,Ocean,1993-01-01,2026-01-16
+Surface Geostrophic Currents,,vdt2018,Surface Currents,Ocean,1993-01-01,2020-06-03
+Surface Geostrophic Currents,,vdt2021,Surface Currents,Ocean,1993-01-01,2023-09-08
+Surface Geostrophic Currents,,vdt2024,Surface Currents,Ocean,1993-01-01,2026-01-16
