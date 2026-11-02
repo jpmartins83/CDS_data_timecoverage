@@ -394,10 +394,16 @@ PRODUCT:
       - satellite-soil-moisture
   Terrestrial Water Storage: 
     Thematic_hub: 'Land Hydrology'
-    ECV: 'Terrestrial Water Storage'
+    ECV: 'Terrestrial Water Storage and Groundwater'
     Product: 'Terrestrial Water Storage'
     entry: 
       - satellite-terrestrial-water-storage
+  Groundwater Storage Change: 
+    Thematic_hub: 'Land Hydrology'
+    ECV: 'Terrestrial Water Storage and Groundwater'
+    Product: 'Groundwater Storage Change'
+    entry: 
+      - satellite-groundwater-storage
   LAI:
     Thematic_hub: 'Land Biosphere'
     ECV: 'LAI'
