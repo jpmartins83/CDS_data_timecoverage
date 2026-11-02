@@ -53,8 +53,9 @@ Environment
 -----------
   ECMWF_SITES_TOKEN   ECMWF Sites token, needed for the upload
   ENVEO_PASSWORD      password of the ENVEO manifest server (ice sheets)
-  EODC_PASSWORD       password of the EODC manifest server (TWSA, lake water
-                      level, gravimetric mass balance)
+  EODC_PASSWORD       password of the EODC manifest server (TWSA, groundwater
+                      storage change, lake water level, gravimetric mass
+                      balance)
   CDS_MANIFEST_USER   user for both of the above (defaults to "cds")
 
 The two manifest passwords used to be hard-coded in the notebook; they are
@@ -514,16 +515,24 @@ MANIFEST_NAME_VERSION = {
     "satellite-greenland-ice-sheet-velocity": r"_v([0-9]+_[0-9]+)\.nc$",
     # .../C3S_TWSA_GLOBAL_MONTHLY_200204_202509_v1.0.nc
     "satellite-terrestrial-water-storage": r"_(v[0-9]+\.[0-9]+)\.nc$",
+    # .../C3S_GWSC_GLOBAL_MONTHLY_200204_202309_v1.0.nc
+    "satellite-groundwater-storage": r"_(v[0-9]+\.[0-9]+)\.nc$",
     # .../water_level/ICDR/V5.0/C3S_LWL_..._19950605_20241225_R20250228.nc
     "satellite-lake-water-level": r"/V([0-9]+\.[0-9]+)/",
 }
+
+# entries whose coverage is read off the filenames of a single EODC manifest
+EODC_MANIFEST_ENTRIES = ("satellite-terrestrial-water-storage",
+                         "satellite-groundwater-storage",
+                         "satellite-lake-water-level")
 
 
 @lru_cache(maxsize=None)
 def extract_dates_from_manifest_name(datasets_dir: str, entry: str, region=None):
     """Coverage read off the filenames listed in a manifest.
 
-    Works for ice sheet velocity, terrestrial water storage and lake water level.
+    Works for ice sheet velocity, terrestrial water storage, groundwater
+    storage change and lake water level.
     """
     manifest_list = generate_yaml(entry)["manifest"]
     if region is not None:
@@ -533,10 +542,11 @@ def extract_dates_from_manifest_name(datasets_dir: str, entry: str, region=None)
     LOG.info("%s: manifest %s", entry, manifest)
 
     rm_manifests(datasets_dir)
-    if entry in ("satellite-terrestrial-water-storage", "satellite-lake-water-level"):
+    if entry in EODC_MANIFEST_ENTRIES:
         download(manifest, datasets_dir, user=MANIFEST_USER,
                  password=manifest_password("eodc"))
         # C3S_TWSA_GLOBAL_MONTHLY_200204_202509_v1.0.nc
+        # C3S_GWSC_GLOBAL_MONTHLY_200204_202309_v1.0.nc
         # C3S_LWL_..._19950605_20241225_R20250228.nc
         ibeg, iend = -3, -2
     else:
@@ -714,8 +724,7 @@ def coverage_by_ecv() -> pd.DataFrame:
             elif entry == "satellite-greenland-ice-sheet-velocity":
                 frames = [extract_dates_from_manifest_name(DATASETS_DIR, entry, "AIS"),
                           extract_dates_from_manifest_name(DATASETS_DIR, entry, "GrIS")]
-            elif entry in ("satellite-terrestrial-water-storage",
-                           "satellite-lake-water-level"):
+            elif entry in EODC_MANIFEST_ENTRIES:
                 frames = [extract_dates_from_manifest_name(DATASETS_DIR, entry)]
             elif entry == "insitu-glaciers-extent":
                 frames = [extract_dates_rgi(jfilepath)]
@@ -772,8 +781,7 @@ def coverage_by_product() -> tuple[pd.DataFrame, pd.DataFrame]:
             versions = extract_dates_from_manifest_name(DATASETS_DIR, entry, "AIS")
         elif prod == "Ice Sheet Velocity (Greenland)":
             versions = extract_dates_from_manifest_name(DATASETS_DIR, entry, "GrIS")
-        elif entry in ("satellite-terrestrial-water-storage",
-                       "satellite-lake-water-level"):
+        elif entry in EODC_MANIFEST_ENTRIES:
             versions = extract_dates_from_manifest_name(DATASETS_DIR, entry)
         elif prod == "Glaciers elevation and mass change data":
             versions = extract_dates_derived_glaciers(jfilepath, cfg)
